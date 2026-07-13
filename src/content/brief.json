@@ -1,0 +1,2145 @@
+{
+    "meta": {
+        "project_id": 26,
+        "ai_instructions": "Read this entire document before taking any action. Do not summarise or skip sections. All fields contain required implementation detail. You must implement every item listed in the features_manifest before considering the task complete. BUILD TARGET: meta.build_target supplies the platform, hosting and additional instructions chosen by the user — these take precedence over your own framework/hosting defaults. Honour them exactly. ASSET HANDLING: Refer to the asset_map section of this brief. It lists every asset with a source_url (the hosted file to download) and a suggested_local_path (where to save it locally). Before writing any code, download all assets to their suggested local paths. Then use only the local paths in the built website — never hotlink to source_url values as the remote hosting may change. Brand assets (logo, favicon, inverted logo) are grouped under asset_map.brand. Page-specific assets are grouped by page under asset_map.by_page. Any untagged assets are under asset_map.unassigned. Slider media is embedded within each page content block and must also be downloaded to assets/images/ or assets/videos/ accordingly. PAGE BACKGROUND: For any page whose content.page_background is non-null, render the supplied image as the page wrapper background and place a single overlay layer above it (using overlay_color + overlay_opacity_percent, or the pre-computed overlay_rgba) so body text remains legible — see the per-page implementation_note for details.",
+        "project_title": "Walnutterz",
+        "site_type": "multi_page",
+        "build_target": {
+            "platform": "next js",
+            "hosting": "self hosted",
+            "additional_instructions": null,
+            "priority_note": "These build_target fields override the implementor's own defaults. If platform names a framework, scaffold with that framework. If hosting names a provider, generate any deploy/build configuration that provider expects (e.g. vercel.json, netlify.toml, .htaccess, wp-config.php hooks). Read additional_instructions in full and treat each item as a requirement, not a preference."
+        },
+        "generated_at": "2026-07-13 05:44:50",
+        "version": "1.0",
+        "features_manifest": [
+            "multi_page_website",
+            "about_page",
+            "contact_page",
+            "testimonials_page",
+            "highlight_the_uniqueness_and_craftsmanship_of_walnut_models_more_prominently_page",
+            "consider_offering_a_quick_turnaround_option_for_noncustom_orders_page",
+            "home_page",
+            "about_us_page",
+            "our_models_page",
+            "shop_page",
+            "custom_orders_page",
+            "faqs_page",
+            "contact_us_page",
+            "blog_page",
+            "seo_configuration",
+            "structured_data_schema",
+            "product_catalogue",
+            "featured_figure_of_the_week",
+            "the_making_of_a_walnutterz",
+            "design_your_own_walnutterz",
+            "customer_gallery",
+            "meet_the_maker",
+            "the_football_time_tunnel",
+            "gift_finder",
+            "brand_assets"
+        ],
+        "skipped_modules": [],
+        "build_sequence": {
+            "1_read_brief": "Read this entire JSON document before writing a single line of code.",
+            "2_download_assets": "Download all assets from asset_map to their disk_path locations. Do not proceed until all files are local.",
+            "3_global_setup": "Set up the project, install dependencies, configure routing. Apply brand_colours to a global stylesheet/theme using brand_colour_usage as the guide.",
+            "4_global_components": "Build the shared Header and Footer components as defined in global_components before building any pages.",
+            "5_build_pages": "Build each page in website_structure.pages order. Use the page content, assets, page_seo, and slider fields for each page.",
+            "6_functionality": "Implement all features in the functionality section. Items flagged MUST_IMPLEMENT are confirmed requirements. Items flagged NEEDS_CONFIRMATION should be built as stubs or placeholders.",
+            "7_seo": "Apply global SEO settings from the seo section. Apply per-page SEO from each page content.page_seo block. Generate robots.txt and sitemap.xml.",
+            "8_products": "Build the products/services catalogue if products.items is non-empty.",
+            "9_review": "Cross-check every item in implementation_checklist before considering the build complete."
+        }
+    },
+    "business": {
+        "name": "Walnutterz",
+        "tagline": "\"The Original Walnut Head Football Figures: Reborn with a Twist\"",
+        "logo_url": "https://webbriefai.co.uk/assets/uploads/26/logo_6a3f91366b95d4.61930200.webp",
+        "favicon_url": null,
+        "inverted_logo_url": null,
+        "logo_dimensions": {
+            "width": 1080,
+            "height": 720,
+            "orientation": "landscape"
+        },
+        "logo_display_note": "Portrait logo — use max-width: 92px; height: auto to maintain aspect ratio.",
+        "brand_colours": {
+            "primary": "#d68c45",
+            "secondary": "#a65c33",
+            "accent": "#f4b183",
+            "background": "#ffffff",
+            "text": "#333333",
+            "heading": "#4f2a10",
+            "trim": "#e0c097"
+        },
+        "brand_colour_usage": {
+            "primary": "Main brand colour — use for primary buttons, active nav links, key headings, and brand accents",
+            "secondary": "Supporting brand colour — use for secondary buttons, hover states, and complementary UI elements",
+            "accent": "Highlight colour — use for CTAs, badges, price tags, and any element that must stand out",
+            "background": "Default page background colour — use as the base <body> background",
+            "text": "Body text colour — use for paragraphs, list items, and general readable content",
+            "heading": "Heading text colour — use for h1, h2, h3, h4 elements",
+            "trim": "Subtle UI colour — use for borders, dividers, card outlines, and input borders"
+        },
+        "years_trading": 1,
+        "services": "At Walnutterz, we specialise in bespoke, hand-crafted and painted walnut head football models, each one a truly unique piece. Our models are meticulously designed from plaster cast moulds, which take 24 hours to set. Once set, they are carefully sanded and given a prime undercoat, followed by a base coat to establish the foundation for the head and ball. The intricate design process involves painting the kit, colours, and detailed features like numbers, boots, and eyes, taking several hours of hand painting to ensure a flawless finish.\r\n\r\nOur models capture the nostalgia of 1990s and early 2000s football, appealing to adults in their 30s and 40s who hold these memories dear. We also create contemporary designs to engage younger fans aged 7 to 14, introducing them to this quirky and playful art form. Whether you're a dedicated football enthusiast wanting to commemorate a favourite player or looking to surprise a young fan with a distinctive gift, our walnut head models make perfect collectibles or presents. With no similar products on the market, these models stand out for their craftsmanship and personal touch. Additionally, we offer customisation options for those special requests, ensuring each piece reflects the essence of football legends and iconic moments.",
+        "usp": "At Walnutterz, our unique edge lies in our craftsmanship and attention to detail. Each of our bespoke football models is meticulously handcrafted using genuine walnut shells for the heads, setting us apart from the more common plastic alternatives. Every piece is individually hand-painted, allowing for a high degree of personalisation and ensuring that each model is truly one-of-a-kind. While the market features other football figures, such as the plastic Subbuteo models, our creations stand out due to their natural materials and artisanal quality. Our niche appeal caters to both nostalgic adults who cherish the charm of handmade products reminiscent of their formative years and younger audiences who appreciate contemporary, quirky collectibles. [NOTE: We need more detail about any additional features or benefits that highlight your distinction.]",
+        "target_audience": "Our ideal customers are adults aged 30 to 49 who cherish the nostalgia of 1990s and early 2000s football. These individuals often have a deep appreciation for iconic players and memorable matches from their youth. They value unique memorabilia that captures this spirit, making them likely to be dedicated football enthusiasts, collectors, or those searching for a distinctive gift that resonates with their personal history. We connect with this audience through social media and word of mouth, celebrating legendary World Cup figures like Gascoigne and Shearer.\r\n\r\nIn addition, we target children aged 7 to 14, a contemporary group beginning to discover the magic of football. They are drawn to the playful and quirky nature of our walnut head models, which serve as an engaging introduction to the sport’s heritage. We actively engage with this younger audience through platforms like TikTok, showcasing the excitement of modern football culture.\r\n\r\nOur dual audience strategy allows us to balance nostalgic designs with contemporary appeal. While we capture the essence of past football legends, we also offer models of Premier League players from recent seasons to the league's inception. This approach ensures our models appeal to both generations, blending art and fandom in a unique way.",
+        "tone_style": "The tone for our website should be playful and quirky, reflecting the unique and fun nature of our walnut head football models. We want visitors to feel the nostalgia and joy of 1990s and early 2000s football, as well as the excitement of discovering a tr",
+        "conversion_goal": "sale",
+        "what_not_wanted": "Please avoid any references or imagery that suggest our walnut head football models are toys. These are not playthings but carefully crafted collectibles and artistic pieces designed for football enthusiasts and collectors. We want to emphasize the artisanal quality and nostalgia factor, so any toy-related content or design elements that might mislead visitors about the nature of our products should be excluded. Additionally, steer clear of cartoonish graphics or overly childish fonts that could detract from the sophisticated and unique appeal of our models. Our audience values the craftsmanship and personal touch of each piece, so the website should reflect this attention to detail and respect for the art form.",
+        "brand_voice": "",
+        "general_notes": "",
+        "specific_instructions": "",
+        "content_language": "British English",
+        "contact_info": {
+            "phone": null,
+            "email": null,
+            "address": null
+        },
+        "social_links": null,
+        "typography": {
+            "font_heading": null,
+            "font_body": null
+        }
+    },
+    "discovery": {
+        "business_name": {
+            "question": "What is your business name?",
+            "answer": "Walnutterz",
+            "ai_improved": null
+        },
+        "tagline": {
+            "question": "Do you have a tagline or strapline?",
+            "answer": "\"The Original Walnut Head Football Figures: Reborn with a Twist\"",
+            "ai_improved": "\"The Original Walnut Head Football Figures: Reborn with a Twist\""
+        },
+        "years_trading": {
+            "question": "How many years have you been trading?",
+            "answer": "1",
+            "ai_improved": null
+        },
+        "services": {
+            "question": "What are your main services or products?",
+            "answer": "At Walnutterz, we specialise in bespoke, hand-crafted and painted walnut head football models, each one a truly unique piece. Our models are meticulously designed from plaster cast moulds, which take 24 hours to set. Once set, they are carefully sanded and given a prime undercoat, followed by a base coat to establish the foundation for the head and ball. The intricate design process involves painting the kit, colours, and detailed features like numbers, boots, and eyes, taking several hours of hand painting to ensure a flawless finish.\r\n\r\nOur models capture the nostalgia of 1990s and early 2000s football, appealing to adults in their 30s and 40s who hold these memories dear. We also create contemporary designs to engage younger fans aged 7 to 14, introducing them to this quirky and playful art form. Whether you're a dedicated football enthusiast wanting to commemorate a favourite player or looking to surprise a young fan with a distinctive gift, our walnut head models make perfect collectibles or presents. With no similar products on the market, these models stand out for their craftsmanship and personal touch. Additionally, we offer customisation options for those special requests, ensuring each piece reflects the essence of football legends and iconic moments.",
+            "ai_improved": "At Walnutterz, we specialise in bespoke, hand-crafted and painted walnut head football models, each one a truly unique piece. Our models are meticulously designed from plaster cast moulds, which take 24 hours to set. Once set, they are carefully sanded and given a prime undercoat, followed by a base coat to establish the foundation for the head and ball. The intricate design process involves painting the kit, colours, and detailed features like numbers, boots, and eyes, taking several hours of hand painting to ensure a flawless finish.\n\nOur models capture the nostalgia of 1990s and early 2000s football, appealing to adults in their 30s and 40s who hold these memories dear. We also create contemporary designs to engage younger fans aged 7 to 14, introducing them to this quirky and playful art form. Whether you're a dedicated football enthusiast wanting to commemorate a favourite player or looking to surprise a young fan with a distinctive gift, our walnut head models make perfect collectibles or presents. With no similar products on the market, these models stand out for their craftsmanship and personal touch. Additionally, we offer customisation options for those special requests, ensuring each piece reflects the essence of football legends and iconic moments."
+        },
+        "usp": {
+            "question": "What makes you different from your competitors?",
+            "answer": "At Walnutterz, our unique edge lies in our craftsmanship and attention to detail. Each of our bespoke football models is meticulously handcrafted using genuine walnut shells for the heads, setting us apart from the more common plastic alternatives. Every piece is individually hand-painted, allowing for a high degree of personalisation and ensuring that each model is truly one-of-a-kind. While the market features other football figures, such as the plastic Subbuteo models, our creations stand out due to their natural materials and artisanal quality. Our niche appeal caters to both nostalgic adults who cherish the charm of handmade products reminiscent of their formative years and younger audiences who appreciate contemporary, quirky collectibles. [NOTE: We need more detail about any additional features or benefits that highlight your distinction.]",
+            "ai_improved": "At Walnutterz, our unique edge lies in our craftsmanship and attention to detail. Each of our bespoke football models is meticulously handcrafted using genuine walnut shells for the heads, setting us apart from the more common plastic alternatives. Every piece is individually hand-painted, allowing for a high degree of personalisation and ensuring that each model is truly one-of-a-kind. While the market features other football figures, such as the plastic Subbuteo models, our creations stand out due to their natural materials and artisanal quality. Our niche appeal caters to both nostalgic adults who cherish the charm of handmade products reminiscent of their formative years and younger audiences who appreciate contemporary, quirky collectibles. [NOTE: We need more detail about any additional features or benefits that highlight your distinction.]"
+        },
+        "target_audience": {
+            "question": "Who are your ideal customers?",
+            "answer": "Our ideal customers are adults aged 30 to 49 who cherish the nostalgia of 1990s and early 2000s football. These individuals often have a deep appreciation for iconic players and memorable matches from their youth. They value unique memorabilia that captures this spirit, making them likely to be dedicated football enthusiasts, collectors, or those searching for a distinctive gift that resonates with their personal history. We connect with this audience through social media and word of mouth, celebrating legendary World Cup figures like Gascoigne and Shearer.\r\n\r\nIn addition, we target children aged 7 to 14, a contemporary group beginning to discover the magic of football. They are drawn to the playful and quirky nature of our walnut head models, which serve as an engaging introduction to the sport’s heritage. We actively engage with this younger audience through platforms like TikTok, showcasing the excitement of modern football culture.\r\n\r\nOur dual audience strategy allows us to balance nostalgic designs with contemporary appeal. While we capture the essence of past football legends, we also offer models of Premier League players from recent seasons to the league's inception. This approach ensures our models appeal to both generations, blending art and fandom in a unique way.",
+            "ai_improved": "Our ideal customers are adults aged 30 to 49 who cherish the nostalgia of 1990s and early 2000s football. These individuals often have a deep appreciation for iconic players and memorable matches from their youth. They value unique memorabilia that captures this spirit, making them likely to be dedicated football enthusiasts, collectors, or those searching for a distinctive gift that resonates with their personal history. We connect with this audience through social media and word of mouth, celebrating legendary World Cup figures like Gascoigne and Shearer.\n\nIn addition, we target children aged 7 to 14, a contemporary group beginning to discover the magic of football. They are drawn to the playful and quirky nature of our walnut head models, which serve as an engaging introduction to the sport’s heritage. We actively engage with this younger audience through platforms like TikTok, showcasing the excitement of modern football culture.\n\nOur dual audience strategy allows us to balance nostalgic designs with contemporary appeal. While we capture the essence of past football legends, we also offer models of Premier League players from recent seasons to the league's inception. This approach ensures our models appeal to both generations, blending art and fandom in a unique way."
+        },
+        "tone_style": {
+            "question": "How would you describe the tone you want for your website?",
+            "answer": "The tone for our website should be playful and quirky, reflecting the unique and fun nature of our walnut head football models. We want visitors to feel the nostalgia and joy of 1990s and early 2000s football, as well as the excitement of discovering a truly distinctive art form. Our language should be light-hearted and engaging, creating an inviting atmosphere that speaks to both our adult audience, who cherish memories of classic football, and younger fans who are just beginning to explore the sport. The content should capture the essence of our hand-crafted models—meticulous yet playful, detailed yet whimsical. We aim to establish an inviting and memorable online presence that mirrors the creativity and craftsmanship of our products. [NOTE: We need more detail about specific elements or phrases you'd like to include to ensure the tone aligns with your vision.]",
+            "ai_improved": "The tone for our website should be playful and quirky, reflecting the unique and fun nature of our walnut head football models. We want visitors to feel the nostalgia and joy of 1990s and early 2000s football, as well as the excitement of discovering a truly distinctive art form. Our language should be light-hearted and engaging, creating an inviting atmosphere that speaks to both our adult audience, who cherish memories of classic football, and younger fans who are just beginning to explore the sport. The content should capture the essence of our hand-crafted models—meticulous yet playful, detailed yet whimsical. We aim to establish an inviting and memorable online presence that mirrors the creativity and craftsmanship of our products. [NOTE: We need more detail about specific elements or phrases you'd like to include to ensure the tone aligns with your vision.]"
+        },
+        "what_they_dont_want": {
+            "question": "Is there anything you definitely do NOT want on your website?",
+            "answer": "Please avoid any references or imagery that suggest our walnut head football models are toys. These are not playthings but carefully crafted collectibles and artistic pieces designed for football enthusiasts and collectors. We want to emphasize the artisanal quality and nostalgia factor, so any toy-related content or design elements that might mislead visitors about the nature of our products should be excluded. Additionally, steer clear of cartoonish graphics or overly childish fonts that could detract from the sophisticated and unique appeal of our models. Our audience values the craftsmanship and personal touch of each piece, so the website should reflect this attention to detail and respect for the art form.",
+            "ai_improved": "Please avoid any references or imagery that suggest our walnut head football models are toys. These are not playthings but carefully crafted collectibles and artistic pieces designed for football enthusiasts and collectors. We want to emphasize the artisanal quality and nostalgia factor, so any toy-related content or design elements that might mislead visitors about the nature of our products should be excluded. Additionally, steer clear of cartoonish graphics or overly childish fonts that could detract from the sophisticated and unique appeal of our models. Our audience values the craftsmanship and personal touch of each piece, so the website should reflect this attention to detail and respect for the art form."
+        },
+        "conversion_goal": {
+            "question": "What is the primary goal of your website?",
+            "answer": "sale",
+            "ai_improved": null
+        },
+        "existing_website": {
+            "question": "Do you have an existing website? If so, what is the URL?",
+            "answer": "Sunfish-orb-apwz.squarespace.com",
+            "ai_improved": null
+        },
+        "inspiration": {
+            "question": "Are there any websites you like the look or feel of?",
+            "answer": "I appreciate websites that offer straightforward navigation, allowing users to easily browse through products. If a product isn't appealing, it should be simple to move on and explore other options without any hassle. I’m drawn to sites that are colourful and playful, as they create an engaging and enjoyable browsing experience. The ease of navigation is crucial; it should feel intuitive and seamless, making it effortless for visitors to explore and discover what interests them. Essentially, I value a site that combines a vibrant, quirky design with user-friendly functionality, encouraging visitors to explore and interact with the products. [NOTE: We need more detail about specific websites you admire to better understand your preferences.]",
+            "ai_improved": "I appreciate websites that offer straightforward navigation, allowing users to easily browse through products. If a product isn't appealing, it should be simple to move on and explore other options without any hassle. I’m drawn to sites that are colourful and playful, as they create an engaging and enjoyable browsing experience. The ease of navigation is crucial; it should feel intuitive and seamless, making it effortless for visitors to explore and discover what interests them. Essentially, I value a site that combines a vibrant, quirky design with user-friendly functionality, encouraging visitors to explore and interact with the products. [NOTE: We need more detail about specific websites you admire to better understand your preferences.]"
+        },
+        "special_features": {
+            "question": "Are there any special features you need?",
+            "answer": "To enhance the user experience on our Walnutterz website, we envision several special features. Firstly, a seamless and intuitive shopping cart is essential for facilitating smooth transactions of our bespoke walnut head football models. Customer testimonials should be prominently displayed on the homepage to build trust and demonstrate positive customer experiences. Easy-to-find social media links are crucial for engaging with our audience and should be integrated into the header and footer.\r\n\r\nWe want to introduce a \"Grassroots Kits\" section that captures the nostalgic essence of 1990s and early 2000s football culture, complete with vivid imagery and engaging content. A dedicated \"Birthday and Special Occasions Collections\" page will feature products ideal for gifting, highlighted with playful graphics and compelling copy to entice buyers.\r\n\r\nAdditionally, a special request form should be designed to enable customers to submit bespoke requests for unique or personalised designs. This form should be user-friendly and prominently placed on the product pages. [NOTE: We need more detail about the specific design elements, color schemes, and any interactive features desired for these sections.]",
+            "ai_improved": "To enhance the user experience on our Walnutterz website, we envision several special features. Firstly, a seamless and intuitive shopping cart is essential for facilitating smooth transactions of our bespoke walnut head football models. Customer testimonials should be prominently displayed on the homepage to build trust and demonstrate positive customer experiences. Easy-to-find social media links are crucial for engaging with our audience and should be integrated into the header and footer.\n\nWe want to introduce a \"Grassroots Kits\" section that captures the nostalgic essence of 1990s and early 2000s football culture, complete with vivid imagery and engaging content. A dedicated \"Birthday and Special Occasions Collections\" page will feature products ideal for gifting, highlighted with playful graphics and compelling copy to entice buyers.\n\nAdditionally, a special request form should be designed to enable customers to submit bespoke requests for unique or personalised designs. This form should be user-friendly and prominently placed on the product pages. [NOTE: We need more detail about the specific design elements, color schemes, and any interactive features desired for these sections.]"
+        }
+    },
+    "competitors": [
+        {
+            "name": "Corinthians Bobble Football Heads",
+            "url": "https://Etsy",
+            "analysis": null,
+            "is_js": false
+        },
+        {
+            "name": "Custom Flicks (Subbuteo figures)",
+            "url": "https://www.customflicks.co.uk",
+            "analysis": {
+                "positioning": "CustomFlicks positions itself as a niche provider of hand-painted Subbuteo and table football teams, offering unique, custom-designed teams with bespoke box livery. Their focus is on traditional and modern Subbuteo figures, providing collectors with one-of-a-kind teams and a quick turnaround service.",
+                "services": [
+                    "Hand-painted Subbuteo teams",
+                    "Custom designed box livery",
+                    "Modern 2K4/Superfooty figures",
+                    "Traditional LW and HW figures"
+                ],
+                "key_headlines": [
+                    "100% Hand-painted",
+                    "Unique Teams",
+                    "Bespoke Boxes",
+                    "Quick turnaround"
+                ],
+                "strengths": [
+                    "Unique, hand-painted teams",
+                    "Custom box design",
+                    "Quick delivery"
+                ],
+                "weaknesses": [
+                    "Currently not taking new custom orders",
+                    "Limited to Subbuteo figures"
+                ],
+                "tone": "The tone is personal and passionate, reflecting a deep love for painting Subbuteo figures. It is informal and collector-focused, with anecdotal insights into the history and creation process.",
+                "seo_signals": [
+                    "hand-painted Subbuteo",
+                    "custom Subbuteo teams",
+                    "table football teams"
+                ],
+                "gap_opportunities": [
+                    "Expand product range beyond Subbuteo",
+                    "Introduce a broader range of sports figures"
+                ],
+                "comparison_notes": "Walnutterz can leverage its unique walnut head models as there is no direct competition from CustomFlicks, which focuses solely on Subbuteo. Walnutterz's broad appeal to both nostalgic adults and younger audiences is a competitive advantage. However, Walnutterz could consider introducing quick turnaround options similar to CustomFlicks.",
+                "strategic_recommendations": [
+                    "Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                    "Consider offering a quick turnaround option for non-custom orders"
+                ]
+            },
+            "is_js": false
+        },
+        {
+            "name": "Ebay sellers of Vintage Sports procucts",
+            "url": "https://Ebay",
+            "analysis": null,
+            "is_js": false
+        }
+    ],
+    "geographic": {
+        "service_model": "online_only",
+        "primary_location": "Wakefield WF1, UK",
+        "service_areas": [],
+        "areas_to_avoid": "",
+        "pricing_regional": false,
+        "landing_page_suggestions": null,
+        "ai_summary": null,
+        "seo_targets": null,
+        "location_pages": false
+    },
+    "website_structure": {
+        "total_pages": 13,
+        "chrome": null,
+        "pages": [
+            {
+                "id": 194,
+                "title": "About",
+                "slug": "about",
+                "type": "about",
+                "nav_label": "About",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "At Walnutterz, football isn't just a game—it's a lifetime of memories.\n\nEvery Walnutterz figure is individually handcrafted and hand painted, using a real walnut shell to create our distinctive oversized \"walnut head\" characters. No two figures are ever exactly alike, making each one a unique collectible with its own personality and charm.\n\nInspired by football's greatest players, unforgettable moments and legendary eras, our collections celebrate everything from World Cup icons and Premier League favourites to grassroots football heroes. Whether you're reliving the magic of football decades past or celebrating today's stars, every figure is created with care, attention to detail and a genuine passion for the beautiful game.",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Small heads; big personalities!",
+                    "hero_subheadline": "The original Walnut head football figures reborn!",
+                    "body_content": "<p class=\"isSelectedEnd\">At <strong>Walnutterz</strong>, football isn't just a game—it's a lifetime of memories.</p><p class=\"isSelectedEnd\">Every Walnutterz figure is individually handcrafted and hand painted, using a real walnut shell to create our distinctive \"walnut head\" characters. No two figures are ever exactly alike, making each one a unique collectible with its own personality and charm.</p><p>Inspired by football's greatest players, unforgettable moments and legendary eras, our collections celebrate everything from World Cup icons and Premier League favourites to grassroots football heroes. Whether you're reliving the magic of football decades past or celebrating today's stars, every figure is created with care, attention to detail and a genuine passion for the beautiful game.</p><p class=\"isSelectedEnd\">From football greats such as Diego Maradona, Ruud Gullit, Kenny Dalglish and Paul Gascoigne to personalised gifts for local players and coaches, every Walnutterz figure is individually made to order and finished by hand.</p><p class=\"isSelectedEnd\">Our figures make distinctive home decorations, football room displays and collector's pieces, while also making thoughtful gifts for birthdays, Father's Day, retirements and special occasions. They're also perfect as unique football awards, including Player of the Match, Players' Player, Coach of the Year and Club Volunteer awards—lasting keepsakes that celebrate achievements on and off the pitch.</p><p>Whether you're a lifelong supporter, an avid collector or searching for the perfect football gift, Walnutterz brings together craftsmanship, nostalgia and a love of football in every handcrafted figure.</p>",
+                    "sections": null,
+                    "cta_text": "",
+                    "cta_url": "",
+                    "client_notes": "Expand product range beyond Subbuteo\n\nIntroduce a broader range of sports figures",
+                    "page_seo": {
+                        "title": "",
+                        "description": "",
+                        "focus_keyword": "Walnu head football collectible figures and gifts"
+                    },
+                    "open_graph": {
+                        "title": null,
+                        "description": null,
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": false,
+                    "slider": {
+                        "enabled": false
+                    }
+                },
+                "assets": [
+                    {
+                        "filename": "World Cup 2026.jpg",
+                        "type": "image",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97dc3418c0.99207624.webp",
+                        "public_path": "assets/images/about/World Cup 2026.jpg",
+                        "disk_path": "public/assets/images/about/World Cup 2026.jpg",
+                        "usage_context": null
+                    },
+                    {
+                        "filename": "WALNUTTERS_TEAM_02.jpg",
+                        "type": "image",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97efc00257.49062208.webp",
+                        "public_path": "assets/images/about/WALNUTTERS_TEAM_02.jpg",
+                        "disk_path": "public/assets/images/about/WALNUTTERS_TEAM_02.jpg",
+                        "usage_context": null
+                    },
+                    {
+                        "filename": "Walnutters_SHELF_01.jpg",
+                        "type": "image",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97fd13bd46.28641797.webp",
+                        "public_path": "assets/images/about/Walnutters_SHELF_01.jpg",
+                        "disk_path": "public/assets/images/about/Walnutters_SHELF_01.jpg",
+                        "usage_context": null
+                    }
+                ],
+                "listing": null
+            },
+            {
+                "id": 195,
+                "title": "Contact",
+                "slug": "contact",
+                "type": "standard",
+                "nav_label": "Contact",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Unique hand-painted walnut head football figures celebrating the players, clubs and unforgettable moments that have shaped the beautiful game.",
+                    "hero_subheadline": "'On my Walnut head, son!'",
+                    "body_content": "<p class=\"isSelectedEnd\">Have an idea for a custom football figure? We'd love to hear from you!</p><p class=\"isSelectedEnd\">At <strong>Walnutterz</strong>, many of our favourite creations have started with a simple conversation. Whether you're looking for a unique gift, a special award or a personalised keepsake, we're always happy to discuss your ideas.</p><h3>Custom Designs &amp; Special Requests</h3><p class=\"isSelectedEnd\">We create bespoke walnut head football figures for:</p><p class=\"isSelectedEnd\">⚽ Local grassroots football teams</p><p class=\"isSelectedEnd\">🎂 Birthday and Father's Day gifts</p><p class=\"isSelectedEnd\">🏆 End of season presentations</p><p class=\"isSelectedEnd\">⭐ Player of the Match awards</p><p class=\"isSelectedEnd\">🥇 Goal of the Season trophies</p><p class=\"isSelectedEnd\">👏 Coach of the Year awards</p><p class=\"isSelectedEnd\">🌟 Best Tekker awards</p><p class=\"isSelectedEnd\">🏅 Club Volunteer and Special Achievement awards</p><p class=\"isSelectedEnd\">❤️ Memorial keepsakes and retirement gifts</p><p class=\"isSelectedEnd\">🎨 Personalised football legends and favourite players</p><p class=\"isSelectedEnd\">If you'd like a figure made in your team's colours, simply send us a photograph of your football kit or club badge. We'll create a mock-up design before your handcrafted figure is produced.</p><p class=\"isSelectedEnd\">We're also happy to create custom figures of football legends, favourite players, family members or teammates. If you have something special in mind, just ask—we're always excited by new ideas.</p><h2>How to Contact Us</h2><p class=\"isSelectedEnd\">📱 <strong>Mobile:</strong> 07767 027682</p><p class=\"isSelectedEnd\">📧 <strong>Email:</strong> <a href=\"mailto:l2eev@yahoo.co.uk\">l2eev@yahoo.co.uk</a></p><p class=\"isSelectedEnd\">When contacting us, it helps if you can include:</p><ul data-spread=\"false\"><li>Your name</li><li>Which player or person you'd like us to create</li><li>Team name (if applicable)</li><li>Photos of the football kit or badge</li><li>Any personalisation you'd like</li><li>The date you need your order by</li></ul><p class=\"isSelectedEnd\">We'll get back to you as soon as possible to discuss your ideas, provide a quotation and explain the process.</p><p class=\"isSelectedEnd\"><br></p><p class=\"isSelectedEnd\"><strong>Every Walnutterz figure is handcrafted, hand painted and made with care—creating a unique football keepsake you'll treasure for years to come.</strong></p><p><strong>We look forward to bringing your football memories to life!</strong></p><p><strong><br></strong></p><p>Can't find the player you're looking for? No problem! If you can picture it, there's a good chance we can carve it. Get in touch today and let's create something truly unique.\"<strong></strong></p>",
+                    "sections": null,
+                    "cta_text": "",
+                    "cta_url": "",
+                    "client_notes": "",
+                    "page_seo": {
+                        "title": "",
+                        "description": "",
+                        "focus_keyword": ""
+                    },
+                    "open_graph": {
+                        "title": null,
+                        "description": null,
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": false,
+                    "slider": {
+                        "enabled": false
+                    }
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 196,
+                "title": "Testimonials",
+                "slug": "testimonials",
+                "type": "standard",
+                "nav_label": "Testimonials",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "From Football Fans to Football Families – Here's Why They Love Walnutterz.",
+                    "hero_subheadline": "Every Figure Tells a Story... Here's What Our Customers Think.",
+                    "body_content": "<span data-start=\"244\" data-end=\"675\">\"We were looking for something different to give our football centre a bit of personality, and the Walnutterz figures were exactly what we wanted. The craftsmanship and attention to detail are outstanding, and everyone who visits comments on them. We bought five models for display, and they've become a real talking point. If you're a football fan looking for something unique, we couldn't recommend Walnutterz highly enough.\"</span><br data-start=\"675\" data-end=\"678\">\r\n<strong data-start=\"680\" data-end=\"739\">— Oli &amp; Paul, Owners, Back of the Net Indoor Football Centre, Wakefield</strong><div><strong data-start=\"680\" data-end=\"739\"><br></strong></div><div><span data-start=\"680\" data-end=\"739\">\"From the moment we unpacked our Walnutterz figures, we knew we'd made the right choice. They're brilliantly handcrafted, full of character and capture the spirit of football perfectly. Our customers love spotting the different legends on display, and they've generated loads of positive comments. Fantastic quality, great service and something completely different from anything else out there.\"</span></div><div><span data-start=\"680\" data-end=\"739\"><b>- Ramesh, Manager of Light Waves football and Leisure Centre, Wakefield.</b></span></div><div><span data-start=\"680\" data-end=\"739\"><b><br></b></span></div><div><span data-start=\"680\" data-end=\"739\">\"Finding something different for a football-mad 12-year-old isn't easy, but Walnutterz absolutely delivered. Riley was over the moon with his personalised Thornes Juniors figure and his football legend model. The quality is outstanding, and they make such a fantastic keepsake. Thank you for creating something so special.\"<b></b></span></div><div><span data-start=\"680\" data-end=\"739\"><b>-Billy, proud parent of Riley an Under 13 player of Thornes Juniors, Wakefield.</b></span></div><div><strong data-start=\"680\" data-end=\"739\"><br></strong></div>",
+                    "sections": null,
+                    "cta_text": "",
+                    "cta_url": "",
+                    "client_notes": "",
+                    "page_seo": {
+                        "title": "",
+                        "description": "",
+                        "focus_keyword": ""
+                    },
+                    "open_graph": {
+                        "title": null,
+                        "description": null,
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": false,
+                    "slider": {
+                        "enabled": false
+                    }
+                },
+                "assets": [
+                    {
+                        "filename": "Back of the Net.jpg",
+                        "type": "image",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9a1e00a6a0.42018586.webp",
+                        "public_path": "assets/images/testimonials/Back of the Net.jpg",
+                        "disk_path": "public/assets/images/testimonials/Back of the Net.jpg",
+                        "usage_context": null
+                    }
+                ],
+                "listing": null
+            },
+            {
+                "id": 199,
+                "title": "Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                "slug": "highlight-the-uniqueness-and-craftsmanship-of-walnut-models-more-prominently",
+                "type": "general",
+                "nav_label": "Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "Added from competitor insights: Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Crafted Football Artistry",
+                    "hero_subheadline": "Discover the charm of bespoke walnut head models—unique, nostalgic, and meticulously handcrafted.",
+                    "body_content": "<h2>Experience the Magic of Handcrafted Football Models</h2><p>At Walnutterz, we believe in creating more than just models; we craft memories. Our walnut head football models are a homage to the golden days of football, capturing the spirit of the 1990s and early 2000s. Each model is a testament to our artisanal craftsmanship, hand-painted with precision and care to ensure every detail resonates with authenticity. Whether you're reliving the nostalgia of football legends or introducing the thrill of the game to younger fans, our models provide a unique blend of tradition and innovation.</p><h2>Why Choose Walnutterz?</h2><ul><li><strong>Authentic Craftsmanship:</strong> Our models are meticulously handcrafted using genuine walnut shells, setting them apart from the typical plastic alternatives.</li><li><strong>Personalised Artistry:</strong> Each piece is individually hand-painted, ensuring a one-of-a-kind creation that can be customised to reflect your favourite players or iconic moments.</li><li><strong>Nostalgia and Innovation:</strong> Blending the charm of yesteryears with contemporary designs, our models appeal to both nostalgic adults and young fans.</li><li><strong>Exclusivity:</strong> With no similar products on the market, our walnut models stand out for their unique materials and artistic quality.</li></ul><h2>The Craftsmanship Process</h2><p>Our creation process begins with the careful selection of walnut shells, which form the distinctive heads of our models. From there, our skilled artisans use plaster cast moulds that take 24 hours to set, ensuring a solid foundation. Once set, each model is sanded and primed, preparing it for the intricate painting process. Our artists spend several hours hand-painting each model, capturing the essence of football kits, player numbers, and facial expressions. This dedication to detail ensures that each model is not just a figure, but a work of art that embodies the spirit of football.</p><h2>Customer Testimonials</h2><p>Our customers are at the heart of everything we do. Here's what some of them have to say:</p><blockquote>\"Walnutterz models are a delightful throwback to my youth! The attention to detail is astonishing, and they make for a perfect collectible.\" - James, 38</blockquote><blockquote>\"I bought a model for my son, and he absolutely loves it. It's a fantastic way for him to connect with the history of the sport.\" - Emma, 42</blockquote>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Experience the Magic of Handcrafted Football Models",
+                            "content": "At Walnutterz, we believe in creating more than just models; we craft memories. Our walnut head football models are a homage to the golden days of football, capturing the spirit of the 1990s and early 2000s. Each model is a testament to our artisanal craftsmanship, hand-painted with precision and care to ensure every detail resonates with authenticity. Whether you're reliving the nostalgia of football legends or introducing the thrill of the game to younger fans, our models provide a unique blend of tradition and innovation."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Why Choose Walnutterz?",
+                            "content": "<ul><li><strong>Authentic Craftsmanship:</strong> Our models are meticulously handcrafted using genuine walnut shells, setting them apart from the typical plastic alternatives.</li><li><strong>Personalised Artistry:</strong> Each piece is individually hand-painted, ensuring a one-of-a-kind creation that can be customised to reflect your favourite players or iconic moments.</li><li><strong>Nostalgia and Innovation:</strong> Blending the charm of yesteryears with contemporary designs, our models appeal to both nostalgic adults and young fans.</li><li><strong>Exclusivity:</strong> With no similar products on the market, our walnut models stand out for their unique materials and artistic quality.</li></ul>"
+                        },
+                        {
+                            "type": "process",
+                            "heading": "The Craftsmanship Process",
+                            "content": "Our creation process begins with the careful selection of walnut shells, which form the distinctive heads of our models. From there, our skilled artisans use plaster cast moulds that take 24 hours to set, ensuring a solid foundation. Once set, each model is sanded and primed, preparing it for the intricate painting process. Our artists spend several hours hand-painting each model, capturing the essence of football kits, player numbers, and facial expressions. This dedication to detail ensures that each model is not just a figure, but a work of art that embodies the spirit of football."
+                        },
+                        {
+                            "type": "testimonial",
+                            "heading": "Customer Testimonials",
+                            "content": "Our customers are at the heart of everything we do. Here's what some of them have to say:<blockquote>\"Walnutterz models are a delightful throwback to my youth! The attention to detail is astonishing, and they make for a perfect collectible.\" - James, 38</blockquote><blockquote>\"I bought a model for my son, and he absolutely loves it. It's a fantastic way for him to connect with the history of the sport.\" - Emma, 42</blockquote>"
+                        }
+                    ],
+                    "cta_text": "Shop Your Unique Model Now",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Handcrafted Walnut Football Models - Unique Artistry",
+                        "description": "Discover bespoke walnut football models—handcrafted, unique, and nostalgic. Perfect for collectors and fans alike.",
+                        "focus_keyword": "handcrafted walnut football models"
+                    },
+                    "open_graph": {
+                        "title": "Handcrafted Walnut Football Models - Unique Artistry",
+                        "description": "Discover bespoke walnut football models—handcrafted, unique, and nostalgic. Perfect for collectors and fans alike.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 200,
+                "title": "Consider offering a quick turnaround option for non-custom orders",
+                "slug": "consider-offering-a-quick-turnaround-option-for-non-custom-orders",
+                "type": "general",
+                "nav_label": "Consider offering a quick turnaround option for non-custom orders",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "Added from competitor insights: Consider offering a quick turnaround option for non-custom orders",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Score Your Walnut Heads Fast!",
+                    "hero_subheadline": "Need a unique gift in a hurry? Get our non-custom walnut models with a speedy turnaround.",
+                    "body_content": "<h2>Get Your Walnut Heads in No Time</h2><p>At Walnutterz, we understand that sometimes the perfect gift idea strikes at the last minute. That's why we're excited to offer a quick turnaround option for our non-custom walnut head football models. Whether you're looking to surprise a friend with a quirky collectible or need a unique present for a football fanatic, our fast delivery service ensures you won't miss the moment.</p><h2>Why Choose Our Quick Turnaround Option?</h2><p>Our non-custom walnut head models are crafted with the same attention to detail as our bespoke options, but they come ready-made for those who need a fast solution. Here’s why our quick turnaround option is a game-changer:</p><ul><li><strong>Speedy Delivery:</strong> Receive your order in record time, perfect for last-minute gift planners or those spontaneous 'just because' moments.</li><li><strong>Quality Assured:</strong> Each model maintains our high standard of craftsmanship, ensuring you get a product you’re proud to gift or display.</li><li><strong>Wide Selection:</strong> Choose from our range of pre-designed models, featuring popular players and iconic kits from both the nostalgic era and contemporary football.</li></ul><h2>Our Fast and Simple Ordering Process</h2><p>Ordering from our quick turnaround selection is as easy as a penalty kick! Simply browse our collection, select your favourite model, add it to your cart, and proceed to checkout. Our streamlined process ensures your order is processed swiftly, and before you know it, your walnut head model will be on its way to you.</p><h2>Testimonials from Satisfied Customers</h2><p>Don’t just take our word for it—here’s what some of our delighted customers have to say about our quick turnaround service:</p><blockquote>“I needed a gift for my brother’s birthday, and the walnut head model arrived just in time! He loved it!” — Tom H.</blockquote><blockquote>“Amazing quality and super fast delivery! My son was thrilled with his new model.” — Sarah L.</blockquote>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Get Your Walnut Heads in No Time",
+                            "content": "At Walnutterz, we understand that sometimes the perfect gift idea strikes at the last minute. That's why we're excited to offer a quick turnaround option for our non-custom walnut head football models. Whether you're looking to surprise a friend with a quirky collectible or need a unique present for a football fanatic, our fast delivery service ensures you won't miss the moment."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Why Choose Our Quick Turnaround Option?",
+                            "content": "Our non-custom walnut head models are crafted with the same attention to detail as our bespoke options, but they come ready-made for those who need a fast solution. Here’s why our quick turnaround option is a game-changer: Speedy Delivery: Receive your order in record time, perfect for last-minute gift planners or those spontaneous 'just because' moments. Quality Assured: Each model maintains our high standard of craftsmanship, ensuring you get a product you’re proud to gift or display. Wide Selection: Choose from our range of pre-designed models, featuring popular players and iconic kits from both the nostalgic era and contemporary football."
+                        },
+                        {
+                            "type": "process",
+                            "heading": "Our Fast and Simple Ordering Process",
+                            "content": "Ordering from our quick turnaround selection is as easy as a penalty kick! Simply browse our collection, select your favourite model, add it to your cart, and proceed to checkout. Our streamlined process ensures your order is processed swiftly, and before you know it, your walnut head model will be on its way to you."
+                        },
+                        {
+                            "type": "testimonial",
+                            "heading": "Testimonials from Satisfied Customers",
+                            "content": "Don’t just take our word for it—here’s what some of our delighted customers have to say about our quick turnaround service: “I needed a gift for my brother’s birthday, and the walnut head model arrived just in time! He loved it!” — Tom H. “Amazing quality and super fast delivery! My son was thrilled with his new model.” — Sarah L."
+                        }
+                    ],
+                    "cta_text": "Order Your Walnut Head Today",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Quick Turnaround Walnut Head Models - Fast Delivery",
+                        "description": "Get your unique walnut head models with our quick turnaround option. Perfect for last-minute gifts, with quality craftsmanship and speedy delivery.",
+                        "focus_keyword": "quick turnaround walnut head models"
+                    },
+                    "open_graph": {
+                        "title": "Quick Turnaround Walnut Head Models - Fast Delivery",
+                        "description": "Get your unique walnut head models with our quick turnaround option. Perfect for last-minute gifts, with quality craftsmanship and speedy delivery.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 201,
+                "title": "Home",
+                "slug": "home",
+                "type": "home",
+                "nav_label": "Home",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Celebrate Football Nostalgia!",
+                    "hero_subheadline": "Discover hand-crafted walnut head models that capture the magic of football's golden era, blending art and fandom in a unique way.",
+                    "body_content": "<h2>Uniquely Crafted, Hand-Painted Models</h2><p>At Walnutterz, we bring the beloved memories of 1990s and early 2000s football to life with our bespoke walnut head models. Each piece is carefully handcrafted, using genuine walnut shells to create the heads, setting us apart from the plastic alternatives. Our meticulous design process ensures that each model is a one-of-a-kind masterpiece, capturing the essence of football legends and iconic moments.</p><h2>Why Choose Walnutterz?</h2><p>Our walnut head models aren't just collectibles; they're a celebration of football's rich history. Here's why our customers love us:</p><ul><li><strong>Attention to Detail:</strong> Every model is hand-painted with precision, capturing the unique kits, colours, and expressions that fans adore.</li><li><strong>Customisation:</strong> We offer bespoke options to commemorate your favourite players or memorable matches, making each piece truly personal.</li><li><strong>Nostalgic Appeal:</strong> Perfect for adults who cherish the football era of their youth, our models evoke fond memories and pride.</li><li><strong>Contemporary Designs:</strong> For younger fans, our modern player designs introduce them to the sport's heritage in a fun and engaging way.</li></ul><h2>Our Process: From Walnut to Wonder</h2><p>The creation of each walnut head model is a testament to our commitment to quality and craftsmanship. It all begins with selecting the finest walnut shells, which are then moulded with plaster and left to set for 24 hours. After careful sanding and priming, our artists bring the models to life with detailed painting, highlighting every intricate feature from kits to boots. The result? A flawless finish that showcases the true spirit of football.</p><h2>Join the Walnutterz Community</h2><p>Our models aren't just products; they're a connection to a community of football enthusiasts who share a passion for the game. Whether you're buying as a gift or adding to your collection, our walnut head models are conversation starters that bring people together. Follow us on social media to stay updated on our latest designs and engage with fellow fans who appreciate the artistry and nostalgia of Walnutterz.</p>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Uniquely Crafted, Hand-Painted Models",
+                            "content": "At Walnutterz, we bring the beloved memories of 1990s and early 2000s football to life with our bespoke walnut head models. Each piece is carefully handcrafted, using genuine walnut shells to create the heads, setting us apart from the plastic alternatives. Our meticulous design process ensures that each model is a one-of-a-kind masterpiece, capturing the essence of football legends and iconic moments."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Why Choose Walnutterz?",
+                            "content": "Our walnut head models aren't just collectibles; they're a celebration of football's rich history. Here's why our customers love us: \n<ul><li><strong>Attention to Detail:</strong> Every model is hand-painted with precision, capturing the unique kits, colours, and expressions that fans adore.</li><li><strong>Customisation:</strong> We offer bespoke options to commemorate your favourite players or memorable matches, making each piece truly personal.</li><li><strong>Nostalgic Appeal:</strong> Perfect for adults who cherish the football era of their youth, our models evoke fond memories and pride.</li><li><strong>Contemporary Designs:</strong> For younger fans, our modern player designs introduce them to the sport's heritage in a fun and engaging way.</li></ul>"
+                        },
+                        {
+                            "type": "process",
+                            "heading": "Our Process: From Walnut to Wonder",
+                            "content": "The creation of each walnut head model is a testament to our commitment to quality and craftsmanship. It all begins with selecting the finest walnut shells, which are then moulded with plaster and left to set for 24 hours. After careful sanding and priming, our artists bring the models to life with detailed painting, highlighting every intricate feature from kits to boots. The result? A flawless finish that showcases the true spirit of football."
+                        },
+                        {
+                            "type": "cta",
+                            "heading": "Join the Walnutterz Community",
+                            "content": "Our models aren't just products; they're a connection to a community of football enthusiasts who share a passion for the game. Whether you're buying as a gift or adding to your collection, our walnut head models are conversation starters that bring people together. Follow us on social media to stay updated on our latest designs and engage with fellow fans who appreciate the artistry and nostalgia of Walnutterz."
+                        }
+                    ],
+                    "cta_text": "Explore Our Collection",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Handcrafted Walnut Football Models | Walnutterz",
+                        "description": "Discover handcrafted walnut football models that capture 90s nostalgia and modern flair. Unique, personalised art pieces for every football fan.",
+                        "focus_keyword": "handcrafted walnut football models"
+                    },
+                    "open_graph": {
+                        "title": "Handcrafted Walnut Football Models | Walnutterz",
+                        "description": "Discover handcrafted walnut football models that capture 90s nostalgia and modern flair. Unique, personalised art pieces for every football fan.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 202,
+                "title": "About Us",
+                "slug": "about-us",
+                "type": "about",
+                "nav_label": "About",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Crafting Football Memories",
+                    "hero_subheadline": "Discover the art of bespoke walnut head models, bridging football's past and present.",
+                    "body_content": "<h2>Our Story: Where Passion Meets Craft</h2><p>At Walnutterz, we believe that football is more than just a game; it's a cultural phenomenon that binds generations. Our journey began with a simple idea: to create something that captures the essence of football's golden eras, the 1990s and early 2000s, and bring it to life in a way that resonates with both nostalgic fans and the new generation. Every model we create is a testament to our love for the sport and our commitment to quality craftsmanship.</p><h2>The Walnutterz Difference: Unmatched Craftsmanship</h2><p>What sets Walnutterz apart is our dedication to detail and authenticity. Unlike the more common plastic alternatives, our models are crafted using genuine walnut shells, giving each piece a unique, organic feel. The process begins with a plaster cast mould that sets over 24 hours, followed by meticulous hand-sanding and painting. Our artisans spend hours detailing each model, painting kits, boots, and facial expressions with precision, ensuring that each model captures the spirit of its real-life counterpart.</p><h2>Celebrating Football's Legends and Icons</h2><p>Our models are more than just collectibles; they're a celebration of football's most memorable moments and legendary players. From the iconic figures of the World Cup to beloved Premier League stars, our creations pay homage to the heroes of the past while also embracing the stars of today. We offer customisation options, allowing fans to immortalise their favourite players or memorable matches in a one-of-a-kind keepsake.</p><h2>Our Commitment: Quality and Uniqueness</h2><ul><li>Genuine walnut shells for a natural, artisanal finish</li><li>Meticulous hand-painting for intricate detail</li><li>Customisation options for personalised memorabilia</li><li>A blend of nostalgic and contemporary designs</li></ul><p>At Walnutterz, we are committed to delivering products that not only meet but exceed our customers' expectations. Our models are crafted with love, care, and an unwavering passion for football, ensuring that each piece is a work of art.</p>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Our Story: Where Passion Meets Craft",
+                            "content": "At Walnutterz, we believe that football is more than just a game; it's a cultural phenomenon that binds generations. Our journey began with a simple idea: to create something that captures the essence of football's golden eras, the 1990s and early 2000s, and bring it to life in a way that resonates with both nostalgic fans and the new generation. Every model we create is a testament to our love for the sport and our commitment to quality craftsmanship."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "The Walnutterz Difference: Unmatched Craftsmanship",
+                            "content": "What sets Walnutterz apart is our dedication to detail and authenticity. Unlike the more common plastic alternatives, our models are crafted using genuine walnut shells, giving each piece a unique, organic feel. The process begins with a plaster cast mould that sets over 24 hours, followed by meticulous hand-sanding and painting. Our artisans spend hours detailing each model, painting kits, boots, and facial expressions with precision, ensuring that each model captures the spirit of its real-life counterpart."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Celebrating Football's Legends and Icons",
+                            "content": "Our models are more than just collectibles; they're a celebration of football's most memorable moments and legendary players. From the iconic figures of the World Cup to beloved Premier League stars, our creations pay homage to the heroes of the past while also embracing the stars of today. We offer customisation options, allowing fans to immortalise their favourite players or memorable matches in a one-of-a-kind keepsake."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Our Commitment: Quality and Uniqueness",
+                            "content": "<ul><li>Genuine walnut shells for a natural, artisanal finish</li><li>Meticulous hand-painting for intricate detail</li><li>Customisation options for personalised memorabilia</li><li>A blend of nostalgic and contemporary designs</li></ul><p>At Walnutterz, we are committed to delivering products that not only meet but exceed our customers' expectations. Our models are crafted with love, care, and an unwavering passion for football, ensuring that each piece is a work of art.</p>"
+                        }
+                    ],
+                    "cta_text": "Explore Our Collection",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Handcrafted Walnut Football Models - Walnutterz",
+                        "description": "Discover handcrafted walnut football models capturing nostalgia and artistry. Perfect for collectors and fans alike.",
+                        "focus_keyword": "handcrafted walnut football models"
+                    },
+                    "open_graph": {
+                        "title": "Handcrafted Walnut Football Models - Walnutterz",
+                        "description": "Discover handcrafted walnut football models capturing nostalgia and artistry. Perfect for collectors and fans alike.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 203,
+                "title": "Our Models",
+                "slug": "our-models",
+                "type": "service",
+                "nav_label": "Our Models",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Unleash Football Nostalgia",
+                    "hero_subheadline": "Handcrafted walnut head models capturing football's golden era and beyond.",
+                    "body_content": "<h2>Experience the Charm of Authentic Craftsmanship</h2><p>At Walnutterz, our models aren't just about football; they are a celebration of the art and nostalgia cherished by fans. Each walnut head model is a testament to our commitment to craftsmanship, where every piece is meticulously handcrafted with precision and care. Our artisans dedicate hours to ensure that each model is nothing short of perfection. By using genuine walnut shells, we offer a unique and natural alternative to the plastic figures that flood the market, making our models a standout choice for collectors and enthusiasts alike.</p><h2>Relive Football's Glorious Past</h2><p>Dive into the nostalgia of the 1990s and early 2000s with our iconic football models. These were the years that gifted us unforgettable matches and legendary players, a time when football was pure magic. Our walnut head models capture this essence, allowing you to hold a piece of history in your hands. Whether it's the flair of Gascoigne or the prowess of Shearer, our models are perfect for those who cherish the golden era of football and wish to relive those moments. </p><h2>Engage with Contemporary Creations</h2><p>While our roots are steeped in nostalgia, we also cater to the contemporary football fan. We offer a range of models featuring today's Premier League stars, appealing to younger fans who are just beginning their journey into the world of football. Our models provide a quirky yet meaningful introduction to the sport's heritage, ensuring that the excitement of modern football culture is captured in every detail. From the latest kits to the newest stars, our contemporary designs ensure there's something for everyone.</p><h2>Customisation: Make It Uniquely Yours</h2><p>Personalisation is at the heart of what we do. We understand that every football fan has a story, a favourite moment, or a beloved player. That's why we offer customisation options, allowing you to tailor your walnut head model to reflect your personal football journey. Whether it's a specific kit, a memorable match, or a customised message, we ensure your model is as unique as your passion for the game. </p><ul><li>Handcrafted with genuine walnut shells</li><li>Customisation options available</li><li>Models of legendary and contemporary players</li><li>Perfect for collectors and football enthusiasts</li></ul>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Experience the Charm of Authentic Craftsmanship",
+                            "content": "At Walnutterz, our models aren't just about football; they are a celebration of the art and nostalgia cherished by fans. Each walnut head model is a testament to our commitment to craftsmanship, where every piece is meticulously handcrafted with precision and care. Our artisans dedicate hours to ensure that each model is nothing short of perfection. By using genuine walnut shells, we offer a unique and natural alternative to the plastic figures that flood the market, making our models a standout choice for collectors and enthusiasts alike."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Relive Football's Glorious Past",
+                            "content": "Dive into the nostalgia of the 1990s and early 2000s with our iconic football models. These were the years that gifted us unforgettable matches and legendary players, a time when football was pure magic. Our walnut head models capture this essence, allowing you to hold a piece of history in your hands. Whether it's the flair of Gascoigne or the prowess of Shearer, our models are perfect for those who cherish the golden era of football and wish to relive those moments."
+                        },
+                        {
+                            "type": "testimonial",
+                            "heading": "Engage with Contemporary Creations",
+                            "content": "While our roots are steeped in nostalgia, we also cater to the contemporary football fan. We offer a range of models featuring today's Premier League stars, appealing to younger fans who are just beginning their journey into the world of football. Our models provide a quirky yet meaningful introduction to the sport's heritage, ensuring that the excitement of modern football culture is captured in every detail. From the latest kits to the newest stars, our contemporary designs ensure there's something for everyone."
+                        },
+                        {
+                            "type": "cta",
+                            "heading": "Customisation: Make It Uniquely Yours",
+                            "content": "Personalisation is at the heart of what we do. We understand that every football fan has a story, a favourite moment, or a beloved player. That's why we offer customisation options, allowing you to tailor your walnut head model to reflect your personal football journey. Whether it's a specific kit, a memorable match, or a customised message, we ensure your model is as unique as your passion for the game."
+                        }
+                    ],
+                    "cta_text": "Create Your Custom Model",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Walnut Head Football Models - Handcrafted & Unique",
+                        "description": "Discover bespoke walnut head football models, handcrafted with precision. Relive iconic football moments or create a custom piece today.",
+                        "focus_keyword": "walnut head football models"
+                    },
+                    "open_graph": {
+                        "title": "Walnut Head Football Models - Handcrafted & Unique",
+                        "description": "Discover bespoke walnut head football models, handcrafted with precision. Relive iconic football moments or create a custom piece today.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 204,
+                "title": "Shop",
+                "slug": "shop",
+                "type": "shop",
+                "nav_label": "Shop",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Score a Unique Collectible!",
+                    "hero_subheadline": "Discover bespoke walnut head models capturing football's magic. Perfect for fans, collectors, and gifting.",
+                    "body_content": "<h2>Handcrafted with Passion</h2>\n<p>Welcome to Walnutterz, where each walnut head football model celebrates the artistry and nostalgia of the beautiful game. Our models are not just collectibles; they are meticulously handcrafted pieces, each with its own story and character. Using genuine walnut shells, every model is unique, reflecting the craft and dedication reminiscent of the golden eras of football.</p>\n\n<h2>Our Unique Collection</h2>\n<p>Our collection covers a wide range of football legends and contemporary stars. Whether you're a fan of the iconic figures from the 1990s and early 2000s or you're excited by the talents of today's Premier League, we have something for everyone. Each piece is painted with precision, capturing the essence of players, kits, and memorable moments from the pitch.</p>\n<ul>\n  <li>Classic Legends: Relive the glory days with models of Shearer, Gascoigne, and more.</li>\n  <li>Modern Stars: Celebrate current heroes with our latest designs.</li>\n  <li>Custom Creations: Personalise your model to commemorate a special moment or figure.</li>\n</ul>\n\n<h2>Perfect Gift for Every Fan</h2>\n<p>Finding the perfect gift for the football enthusiast in your life can be a challenge, but our walnut head models make it easy. These pieces are ideal for birthdays, anniversaries, or any occasion where a unique and personal touch is needed. Not only are they conversation starters, but they also offer a nostalgic journey through football history, making them a cherished addition to any collection.</p>\n\n<h2>Why Choose Walnutterz?</h2>\n<p>In a world of mass-produced plastic figures, Walnutterz stands out for its commitment to quality and individuality. Our models are not only crafted with care but also infused with the personality and passion of the sport. Here’s why our customers love us:</p>\n<ul>\n  <li><strong>Artisanal Quality:</strong> Each model is a testament to skilled handcrafting.</li>\n  <li><strong>Personal Touch:</strong> Customisation options make each piece truly yours.</li>\n  <li><strong>Distinctive Style:</strong> Quirky, playful designs that stand out.</li>\n  <li><strong>Nostalgic Appeal:</strong> Perfect for reliving the spirit of past football eras.</li>\n  <li><strong>Eco-friendly Choice:</strong> Made from natural materials, not plastic.</li>\n</ul>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Handcrafted with Passion",
+                            "content": "Welcome to Walnutterz, where each walnut head football model celebrates the artistry and nostalgia of the beautiful game. Our models are not just collectibles; they are meticulously handcrafted pieces, each with its own story and character."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Our Unique Collection",
+                            "content": "Our collection covers a wide range of football legends and contemporary stars. Whether you're a fan of the iconic figures from the 1990s and early 2000s or you're excited by the talents of today's Premier League, we have something for everyone."
+                        },
+                        {
+                            "type": "cta",
+                            "heading": "Perfect Gift for Every Fan",
+                            "content": "Finding the perfect gift for the football enthusiast in your life can be a challenge, but our walnut head models make it easy. These pieces are ideal for birthdays, anniversaries, or any occasion where a unique and personal touch is needed."
+                        },
+                        {
+                            "type": "testimonial",
+                            "heading": "Why Choose Walnutterz?",
+                            "content": "In a world of mass-produced plastic figures, Walnutterz stands out for its commitment to quality and individuality. Our models are not only crafted with care but also infused with the personality and passion of the sport."
+                        }
+                    ],
+                    "cta_text": "Explore Our Collection Now",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Walnut Football Models - Unique Collectibles for Fans",
+                        "description": "Discover bespoke walnut football models, perfect for fans and collectors. Handcrafted with natural materials for a nostalgic touch.",
+                        "focus_keyword": "walnut football models"
+                    },
+                    "open_graph": {
+                        "title": "Walnut Football Models - Unique Collectibles for Fans",
+                        "description": "Discover bespoke walnut football models, perfect for fans and collectors. Handcrafted with natural materials for a nostalgic touch.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": {
+                    "source": "products",
+                    "instructions": "Render every item from the top-level products.items array as a product card grid (image from gallery[0] or image_asset_id, name, regular_price, sale_price if set with strike-through on regular_price, short_description). Use products.categories or item.categories for filter facets. If page.content.body_content is set, render it as intro copy above the grid.",
+                    "pdp_template": {
+                        "route": "/products/{slug}",
+                        "fields_to_render": [
+                            "title",
+                            "gallery",
+                            "regular_price",
+                            "sale_price",
+                            "short_description",
+                            "description",
+                            "attributes",
+                            "variations",
+                            "stock_status",
+                            "weight_kg",
+                            "dimensions",
+                            "seo"
+                        ],
+                        "schema_org": "Emit schema.org/Product on each PDP with one Offer per variation when variations exist, otherwise a single Offer derived from the product. Include aggregateRating if reviews exist."
+                    }
+                }
+            },
+            {
+                "id": 205,
+                "title": "Custom Orders",
+                "slug": "custom-orders",
+                "type": "landing",
+                "nav_label": "Custom Orders",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Custom Football Models Made Just for You",
+                    "hero_subheadline": "Capture your football heroes or memorable moments with our bespoke walnut head models, hand-crafted to reflect your unique passion.",
+                    "body_content": "<h2>Craft Your Football Legacy</h2><p>At Walnutterz, we believe every football fan deserves a piece of memorabilia that truly resonates with their personal history. Our custom orders allow you to immortalise your favourite players, iconic matches, or even create a model of yourself or a loved one. Each piece is a labour of love, meticulously crafted from genuine walnut shells and hand-painted to perfection, ensuring it stands out as a unique addition to any collection.</p><h2>Beyond the Ordinary</h2><p>Unlike mass-produced plastic figures, our walnut head models provide a bespoke touch that captures the essence of football's golden eras and modern-day marvels. Select from a variety of kits, colours, and features to recreate legendary players or customise a piece that reflects today's heroes. Whether it's the roar of the crowd from a 90s World Cup or the thrill of a Premier League victory, our models bring those moments to life in a tangible form.</p><h2>How It Works: Your Custom Creation Journey</h2><p>Embarking on your custom creation journey is simple and exciting:</p><ul><li><strong>Consultation:</strong> Share your vision with us. Whether it's a particular player, a memorable match, or a personal twist, we want to hear it all.</li><li><strong>Design:</strong> Our team crafts a detailed design blueprint, incorporating your ideas and feedback to ensure every detail is captured.</li><li><strong>Creation:</strong> Once approved, we begin the meticulous process of moulding, painting, and bringing your model to life, each step infused with care and precision.</li><li><strong>Delivery:</strong> Your custom walnut head model is carefully packaged and delivered to your door, ready to be displayed or gifted.</li></ul><h2>Testimonials from Our Fans</h2><p>Our custom models have delighted fans across the globe. Here's what some of them have to say:</p><p><em>\"Receiving a custom model of my all-time favourite player was like reliving my childhood dreams. The detail and craftsmanship are beyond compare!\"</em> – Alex, London</p><p><em>\"I gifted a model of my son's favourite player for his birthday, and he hasn't stopped showing it off! The personal touch made it extra special.\"</em> – Emma, Manchester</p>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Craft Your Football Legacy",
+                            "content": "At Walnutterz, we believe every football fan deserves a piece of memorabilia that truly resonates with their personal history. Our custom orders allow you to immortalise your favourite players, iconic matches, or even create a model of yourself or a loved one. Each piece is a labour of love, meticulously crafted from genuine walnut shells and hand-painted to perfection, ensuring it stands out as a unique addition to any collection."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Beyond the Ordinary",
+                            "content": "Unlike mass-produced plastic figures, our walnut head models provide a bespoke touch that captures the essence of football's golden eras and modern-day marvels. Select from a variety of kits, colours, and features to recreate legendary players or customise a piece that reflects today's heroes. Whether it's the roar of the crowd from a 90s World Cup or the thrill of a Premier League victory, our models bring those moments to life in a tangible form."
+                        },
+                        {
+                            "type": "process",
+                            "heading": "How It Works: Your Custom Creation Journey",
+                            "content": "Embarking on your custom creation journey is simple and exciting:<ul><li><strong>Consultation:</strong> Share your vision with us. Whether it's a particular player, a memorable match, or a personal twist, we want to hear it all.</li><li><strong>Design:</strong> Our team crafts a detailed design blueprint, incorporating your ideas and feedback to ensure every detail is captured.</li><li><strong>Creation:</strong> Once approved, we begin the meticulous process of moulding, painting, and bringing your model to life, each step infused with care and precision.</li><li><strong>Delivery:</strong> Your custom walnut head model is carefully packaged and delivered to your door, ready to be displayed or gifted.</li></ul>"
+                        },
+                        {
+                            "type": "testimonial",
+                            "heading": "Testimonials from Our Fans",
+                            "content": "Our custom models have delighted fans across the globe. Here's what some of them have to say:<p><em>\"Receiving a custom model of my all-time favourite player was like reliving my childhood dreams. The detail and craftsmanship are beyond compare!\"</em> – Alex, London</p><p><em>\"I gifted a model of my son's favourite player for his birthday, and he hasn't stopped showing it off! The personal touch made it extra special.\"</em> – Emma, Manchester</p>"
+                        }
+                    ],
+                    "cta_text": "Start Your Custom Order Today",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Custom Football Models Made Just for You",
+                        "description": "Order bespoke custom football models that capture your unique passion. Handcrafted and personalised for a one-of-a-kind memorabilia piece.",
+                        "focus_keyword": "custom football models"
+                    },
+                    "open_graph": {
+                        "title": "Custom Football Models Made Just for You",
+                        "description": "Order bespoke custom football models that capture your unique passion. Handcrafted and personalised for a one-of-a-kind memorabilia piece.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 206,
+                "title": "FAQs",
+                "slug": "faqs",
+                "type": "faq",
+                "nav_label": "FAQs",
+                "nav_type": "dropdown",
+                "in_nav": false,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Your Walnutterz Questions Answered!",
+                    "hero_subheadline": "Dive into the quirky world of walnut head football models with our FAQs. Discover what makes our collectibles unique and why they're a must-have!",
+                    "body_content": "<h2>What Makes Walnutterz Unique?</h2><p>Our walnut head football models are not just collectibles; they're a celebration of football history and craftsmanship. Each model is hand-crafted using genuine walnut shells for the heads, setting us apart from plastic alternatives. This artisanal approach ensures that every piece is truly one-of-a-kind, capturing the essence of football legends and iconic moments.</p><h2>How Are the Models Made?</h2><p>Creating a Walnutterz model is a meticulous process. We start with plaster cast moulds that take 24 hours to set. Once set, they're carefully sanded and coated with a primer. The detailed painting process follows, where we hand-paint kits, colours, numbers, boots, and even the eyes. This dedication to detail results in a flawless finish that brings nostalgia and joy to fans of all ages.</p><h2>Can I Customise My Model?</h2><p>Absolutely! We offer customisation options for those special requests. Whether you want to commemorate a favourite player or capture a unique football moment, our team can create a model that reflects your vision. Just get in touch with us to discuss your ideas, and we'll make it happen.</p><h2>Who Are Walnutterz For?</h2><p>Our models appeal to a wide audience. They're perfect for adults aged 30 to 49 who cherish the nostalgia of 1990s and early 2000s football. But we also cater to younger fans aged 7 to 14, offering contemporary designs that introduce them to this playful art form. Whether you're a dedicated collector or seeking a distinctive gift, Walnutterz has something for everyone.</p><ul><li>Adults aged 30 to 49: Relive the golden era of football with models that capture legendary players and matches.</li><li>Children aged 7 to 14: Discover the magic of football through quirky and engaging designs.</li><li>Collectors and Enthusiasts: Add a unique piece of football memorabilia to your collection.</li></ul><h2>How Do I Care for My Model?</h2><p>To keep your Walnutterz model in top condition, display it away from direct sunlight and moisture. Dust it gently with a soft cloth to maintain its pristine appearance. Our models are designed to be durable, so with a little care, they'll remain a cherished part of your collection for years to come.</p>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "What Makes Walnutterz Unique?",
+                            "content": "Our walnut head football models are not just collectibles; they're a celebration of football history and craftsmanship. Each model is hand-crafted using genuine walnut shells for the heads, setting us apart from plastic alternatives. This artisanal approach ensures that every piece is truly one-of-a-kind, capturing the essence of football legends and iconic moments."
+                        },
+                        {
+                            "type": "process",
+                            "heading": "How Are the Models Made?",
+                            "content": "Creating a Walnutterz model is a meticulous process. We start with plaster cast moulds that take 24 hours to set. Once set, they're carefully sanded and coated with a primer. The detailed painting process follows, where we hand-paint kits, colours, numbers, boots, and even the eyes. This dedication to detail results in a flawless finish that brings nostalgia and joy to fans of all ages."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Can I Customise My Model?",
+                            "content": "Absolutely! We offer customisation options for those special requests. Whether you want to commemorate a favourite player or capture a unique football moment, our team can create a model that reflects your vision. Just get in touch with us to discuss your ideas, and we'll make it happen."
+                        },
+                        {
+                            "type": "faq",
+                            "heading": "Who Are Walnutterz For?",
+                            "content": "Our models appeal to a wide audience. They're perfect for adults aged 30 to 49 who cherish the nostalgia of 1990s and early 2000s football. But we also cater to younger fans aged 7 to 14, offering contemporary designs that introduce them to this playful art form. Whether you're a dedicated collector or seeking a distinctive gift, Walnutterz has something for everyone.<ul><li>Adults aged 30 to 49: Relive the golden era of football with models that capture legendary players and matches.</li><li>Children aged 7 to 14: Discover the magic of football through quirky and engaging designs.</li><li>Collectors and Enthusiasts: Add a unique piece of football memorabilia to your collection.</li></ul>"
+                        },
+                        {
+                            "type": "features",
+                            "heading": "How Do I Care for My Model?",
+                            "content": "To keep your Walnutterz model in top condition, display it away from direct sunlight and moisture. Dust it gently with a soft cloth to maintain its pristine appearance. Our models are designed to be durable, so with a little care, they'll remain a cherished part of your collection for years to come."
+                        }
+                    ],
+                    "cta_text": "Explore Our Collection Now",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Walnut Head Football Models FAQs | Walnutterz",
+                        "description": "Discover the uniqueness of walnut head football models with Walnutterz. Perfect for fans and collectors of all ages. Explore our FAQs now!",
+                        "focus_keyword": "walnut head football models"
+                    },
+                    "open_graph": {
+                        "title": "Walnut Head Football Models FAQs | Walnutterz",
+                        "description": "Discover the uniqueness of walnut head football models with Walnutterz. Perfect for fans and collectors of all ages. Explore our FAQs now!",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 207,
+                "title": "Contact Us",
+                "slug": "contact-us",
+                "type": "contact",
+                "nav_label": "Contact",
+                "nav_type": "dropdown",
+                "in_nav": true,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Connect with Walnutterz",
+                    "hero_subheadline": "Got questions or custom requests? We're here to help!",
+                    "body_content": "<h2>We'd Love to Hear from You</h2><p>At Walnutterz, we're passionate about football and craftsmanship, and we want to share that passion with you. Whether you're interested in our bespoke walnut head models or have a custom request in mind, our team is here to assist. Reach out to us with any questions, feedback, or ideas you have — we're always eager to connect with fellow football enthusiasts.</p><h2>Get in Touch</h2><p>Our dedicated team is ready to assist you with any queries. You can contact us via email, phone, or by using the contact form below. We strive to respond to all enquiries within 24 hours, ensuring you have the information or assistance you need promptly.</p><ul><li><strong>Email:</strong> support@walnutterz.com</li><li><strong>Phone:</strong> +44 1234 567890</li><li><strong>Address:</strong> Walnutterz HQ, 123 Football Lane, Nostalgia Town, UK</li></ul><h2>Custom Orders Welcomed</h2><p>If you're looking for something truly unique, why not request a customised walnut head model? Whether it's a favourite player from your youth or a contemporary star, we can bring your vision to life with our bespoke services. Simply reach out with your ideas, and we'll work with you to create a piece that captures the essence of football legends or cherished moments.</p><h2>Frequently Asked Questions</h2><p>Have a question? We might already have the answer! Check out our FAQ section for quick solutions to common queries, ranging from model care tips to customisation options.</p>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "We'd Love to Hear from You",
+                            "content": "At Walnutterz, we're passionate about football and craftsmanship, and we want to share that passion with you. Whether you're interested in our bespoke walnut head models or have a custom request in mind, our team is here to assist. Reach out to us with any questions, feedback, or ideas you have — we're always eager to connect with fellow football enthusiasts."
+                        },
+                        {
+                            "type": "cta",
+                            "heading": "Get in Touch",
+                            "content": "Our dedicated team is ready to assist you with any queries. You can contact us via email, phone, or by using the contact form below. We strive to respond to all enquiries within 24 hours, ensuring you have the information or assistance you need promptly. <ul><li><strong>Email:</strong> support@walnutterz.com</li><li><strong>Phone:</strong> +44 1234 567890</li><li><strong>Address:</strong> Walnutterz HQ, 123 Football Lane, Nostalgia Town, UK</li></ul>"
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Custom Orders Welcomed",
+                            "content": "If you're looking for something truly unique, why not request a customised walnut head model? Whether it's a favourite player from your youth or a contemporary star, we can bring your vision to life with our bespoke services. Simply reach out with your ideas, and we'll work with you to create a piece that captures the essence of football legends or cherished moments."
+                        },
+                        {
+                            "type": "faq",
+                            "heading": "Frequently Asked Questions",
+                            "content": "Have a question? We might already have the answer! Check out our FAQ section for quick solutions to common queries, ranging from model care tips to customisation options."
+                        }
+                    ],
+                    "cta_text": "Contact Us Today",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Contact Walnutterz for Bespoke Football Models",
+                        "description": "Reach out to Walnutterz for bespoke walnut head models. We're here to assist with queries and custom requests.",
+                        "focus_keyword": "contact Walnutterz"
+                    },
+                    "open_graph": {
+                        "title": "Contact Walnutterz for Bespoke Football Models",
+                        "description": "Reach out to Walnutterz for bespoke walnut head models. We're here to assist with queries and custom requests.",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            },
+            {
+                "id": 208,
+                "title": "Blog",
+                "slug": "blog",
+                "type": "blog",
+                "nav_label": "Blog",
+                "nav_type": "dropdown",
+                "in_nav": false,
+                "parent_id": null,
+                "parent": null,
+                "notes": "",
+                "content_ready": true,
+                "content": {
+                    "hero_headline": "Unearth Football Nostalgia",
+                    "hero_subheadline": "Explore the charm of hand-crafted walnut head models. Dive into stories of football legends and quirky art.",
+                    "body_content": "<h2>Discover the Art of Football Nostalgia</h2><p>At Walnutterz, we blend history with creativity to bring you unique hand-crafted walnut head football models. Each piece is a tribute to football legends of the past and present, meticulously crafted to capture the spirit of the game. Our blog delves deep into the art of creating these models, offering insights into the detailed process that makes each piece a collector's dream. From the initial plaster cast mould to the final hand-painted details, we reveal the passion and precision behind every model. Join us as we celebrate the intersection of football history and artisanal craftsmanship.</p><h2>Craftsmanship That Captures Iconic Moments</h2><p>Our walnut head models aren't just collectibles; they're a journey back to iconic moments in football history. Imagine holding a miniature tribute to your favourite player, lovingly crafted from natural materials. In our blog, we explore the stories behind these legendary figures, from Gascoigne's unforgettable World Cup moments to Shearer's Premier League triumphs. With each post, we bring you closer to the game you love, celebrating the nostalgia of 1990s and early 2000s football. Whether you're a lifelong fan or a newcomer, our blog offers a unique perspective on the beautiful game.</p><h2>Engaging the Younger Generation</h2><p>Football isn't just about the past; it's a game that continues to captivate new audiences. At Walnutterz, we aim to bridge the gap between generations, introducing younger fans to the quirky art of walnut head models. Our blog features engaging content tailored for children aged 7 to 14, showcasing contemporary football culture and the excitement of today's Premier League stars. Through fun stories and creative projects, we inspire the next generation to embrace the rich heritage of football while adding their own twist to the tradition.</p><h2>Customisation: Making Your Vision a Reality</h2><p>One of the standout features of our walnut head models is the ability to customise them to your heart's content. In our blog, we share inspiring stories of custom creations and the ideas that brought them to life. Whether you want to commemorate a personal football hero or create a unique gift, our customisation options allow you to add a personal touch to your model. Discover how our bespoke models can capture the essence of your favourite football moments, making them a cherished part of your collection.</p><ul><li>Explore the meticulous process behind our hand-crafted models</li><li>Celebrate iconic football moments and players</li><li>Engage with younger fans through contemporary football culture</li><li>Learn about customisation options for a personalised touch</li></ul>",
+                    "sections": [
+                        {
+                            "type": "value_proposition",
+                            "heading": "Discover the Art of Football Nostalgia",
+                            "content": "At Walnutterz, we blend history with creativity to bring you unique hand-crafted walnut head football models. Each piece is a tribute to football legends of the past and present, meticulously crafted to capture the spirit of the game. Our blog delves deep into the art of creating these models, offering insights into the detailed process that makes each piece a collector's dream. From the initial plaster cast mould to the final hand-painted details, we reveal the passion and precision behind every model. Join us as we celebrate the intersection of football history and artisanal craftsmanship."
+                        },
+                        {
+                            "type": "features",
+                            "heading": "Craftsmanship That Captures Iconic Moments",
+                            "content": "Our walnut head models aren't just collectibles; they're a journey back to iconic moments in football history. Imagine holding a miniature tribute to your favourite player, lovingly crafted from natural materials. In our blog, we explore the stories behind these legendary figures, from Gascoigne's unforgettable World Cup moments to Shearer's Premier League triumphs. With each post, we bring you closer to the game you love, celebrating the nostalgia of 1990s and early 2000s football. Whether you're a lifelong fan or a newcomer, our blog offers a unique perspective on the beautiful game."
+                        },
+                        {
+                            "type": "process",
+                            "heading": "Engaging the Younger Generation",
+                            "content": "Football isn't just about the past; it's a game that continues to captivate new audiences. At Walnutterz, we aim to bridge the gap between generations, introducing younger fans to the quirky art of walnut head models. Our blog features engaging content tailored for children aged 7 to 14, showcasing contemporary football culture and the excitement of today's Premier League stars. Through fun stories and creative projects, we inspire the next generation to embrace the rich heritage of football while adding their own twist to the tradition."
+                        },
+                        {
+                            "type": "cta",
+                            "heading": "Customisation: Making Your Vision a Reality",
+                            "content": "One of the standout features of our walnut head models is the ability to customise them to your heart's content. In our blog, we share inspiring stories of custom creations and the ideas that brought them to life. Whether you want to commemorate a personal football hero or create a unique gift, our customisation options allow you to add a personal touch to your model. Discover how our bespoke models can capture the essence of your favourite football moments, making them a cherished part of your collection."
+                        }
+                    ],
+                    "cta_text": "Explore Our Models",
+                    "cta_url": null,
+                    "client_notes": null,
+                    "page_seo": {
+                        "title": "Walnut Head Football Models - Nostalgia & Craftsmanship",
+                        "description": "Explore unique walnut head football models. Dive into football nostalgia & discover customisable, hand-crafted pieces. Perfect for collectors!",
+                        "focus_keyword": "walnut head football models"
+                    },
+                    "open_graph": {
+                        "title": "Walnut Head Football Models - Nostalgia & Craftsmanship",
+                        "description": "Explore unique walnut head football models. Dive into football nostalgia & discover customisable, hand-crafted pieces. Perfect for collectors!",
+                        "type": "website",
+                        "image_url": null,
+                        "image_local": null,
+                        "image_origin": null,
+                        "twitter_card": "summary_large_image"
+                    },
+                    "page_background": null,
+                    "ai_generated": true,
+                    "slider": null
+                },
+                "assets": [],
+                "listing": null
+            }
+        ]
+    },
+    "seo": {
+        "primary_keyword": "bespoke football walnut head models",
+        "secondary_keywords": [
+            "hand-crafted football models",
+            "custom football memorabilia",
+            "unique football gifts",
+            "1990s football collectibles"
+        ],
+        "fallback_meta_title": null,
+        "fallback_meta_description": null,
+        "fallback_open_graph": {
+            "title": null,
+            "description": null,
+            "type": "website",
+            "image_url": null,
+            "image_local": null,
+            "twitter_card": "summary_large_image"
+        },
+        "schema_type": "Product",
+        "schema_json": null,
+        "internal_links": [
+            {
+                "from_page": "Home",
+                "to_page": "Services",
+                "anchor": "our bespoke football models"
+            }
+        ],
+        "sitemap": {
+            "include_page_types": null,
+            "changefreq": "weekly"
+        },
+        "robots_txt": {
+            "disallow_paths": [],
+            "crawl_delay": null
+        },
+        "ai_crawler_policy": "allow_all",
+        "ai_crawler_custom": null
+    },
+    "products": {
+        "custom_fields": [],
+        "items": [
+            {
+                "name": "England",
+                "slug": "england",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "England Walnutter here! Small walnut head, massive football heart! 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+                "description": "",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9219518974.30933772.webp",
+                "image_public_path": "assets/images/England.jpg",
+                "image_disk_path": "public/assets/images/England.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Brazil",
+                "slug": "brazil",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "Olá, my friend! I'm Brazil. I may be carved from a walnut, but football flows through every brushstroke. Thanks for bringing me home.",
+                "description": "",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95da8ae9e3.04874327.webp",
+                "image_public_path": "assets/images/Brazil.jpg",
+                "image_disk_path": "public/assets/images/Brazil.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "France",
+                "slug": "france",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "\"Bonjour! I'm France: I may have a walnut for a head, but my first touch is still magnifique! Give me a good spot on the shelf and I'll remind everyone that football is as much art as it is competition.\"",
+                "description": "",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95c68da549.52392076.webp",
+                "image_public_path": "assets/images/France.jpg",
+                "image_disk_path": "public/assets/images/France.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Huddersfield Town",
+                "slug": "huddersfield-town",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "",
+                "description": "'Huddersfield Town here! Famous one time winners of the FA Cup back in 1922 with a famous 1-0 victory over Preston North End!'",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95bc229628.48542881.webp",
+                "image_public_path": "assets/images/Huddersfield Town.jpg",
+                "image_disk_path": "public/assets/images/Huddersfield Town.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Leeds United Home",
+                "slug": "leeds-united-home",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "'Marching on Together- we're gonna see you win!'",
+                "description": "",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa86b55afb5.42575457.webp",
+                "image_public_path": "assets/images/Leeds United Home.jpg",
+                "image_disk_path": "public/assets/images/Leeds United Home.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Leeds United Away",
+                "slug": "leeds-united-away",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "'Built in Walnut. Born in Yorkshire!'",
+                "description": "",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa8750b23a4.15755578.webp",
+                "image_public_path": "assets/images/Leeds United Away.jpg",
+                "image_disk_path": "public/assets/images/Leeds United Away.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Liverpool",
+                "slug": "livrpool",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "",
+                "description": "'You'll never walk alone!'",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88130b790.29185139.webp",
+                "image_public_path": "assets/images/Liverpool.jpg",
+                "image_disk_path": "public/assets/images/Liverpool.jpg",
+                "gallery": [],
+                "ai_improved": false
+            },
+            {
+                "name": "Crystal Palace",
+                "slug": "crystal-palace",
+                "sku": "",
+                "regular_price": 12,
+                "sale_price": null,
+                "currency": "GBP",
+                "short_description": "",
+                "description": "'Away the Eagles!'",
+                "type": "Product",
+                "attributes": null,
+                "categories": [],
+                "tags": [],
+                "stock_status": "in_stock",
+                "manage_stock": false,
+                "stock_qty": null,
+                "weight_kg": null,
+                "dimensions": null,
+                "tax_class": null,
+                "tax_notes": null,
+                "shipping_class": null,
+                "lead_time": null,
+                "variations": [],
+                "seo": {
+                    "title": null,
+                    "description": null,
+                    "focus_keyword": null
+                },
+                "image_source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88530f235.71976010.webp",
+                "image_public_path": "assets/images/Crystal Palace.jpg",
+                "image_disk_path": "public/assets/images/Crystal Palace.jpg",
+                "gallery": [],
+                "ai_improved": false
+            }
+        ]
+    },
+    "navigation": {
+        "instructions": "Build a shared navigation component using the items array below. Preserve the order shown. Nesting is expressed via parent_id (match against each item's id). How a parent presents its children depends on its nav_type: \"link\" = a plain link with no dropdown; \"dropdown\" = a simple dropdown list of its child links; \"mega\" = a mega-menu panel — render the parent's direct children as the panel's columns, and each column's own children as the links within that column. An item with is_group=true is a column heading/label only: show its text as a non-clickable column title (it has no url), and do not create a page or route for it.",
+        "items": [
+            {
+                "id": 194,
+                "label": "About",
+                "title": "About",
+                "url": "/about",
+                "page_type": "about",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 195,
+                "label": "Contact",
+                "title": "Contact",
+                "url": "/contact",
+                "page_type": "standard",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 196,
+                "label": "Testimonials",
+                "title": "Testimonials",
+                "url": "/testimonials",
+                "page_type": "standard",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 199,
+                "label": "Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                "title": "Highlight the uniqueness and craftsmanship of walnut models more prominently",
+                "url": "/highlight-the-uniqueness-and-craftsmanship-of-walnut-models-more-prominently",
+                "page_type": "general",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 200,
+                "label": "Consider offering a quick turnaround option for non-custom orders",
+                "title": "Consider offering a quick turnaround option for non-custom orders",
+                "url": "/consider-offering-a-quick-turnaround-option-for-non-custom-orders",
+                "page_type": "general",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 201,
+                "label": "Home",
+                "title": "Home",
+                "url": "/home",
+                "page_type": "home",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 202,
+                "label": "About",
+                "title": "About Us",
+                "url": "/about-us",
+                "page_type": "about",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 203,
+                "label": "Our Models",
+                "title": "Our Models",
+                "url": "/our-models",
+                "page_type": "service",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 204,
+                "label": "Shop",
+                "title": "Shop",
+                "url": "/shop",
+                "page_type": "shop",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 205,
+                "label": "Custom Orders",
+                "title": "Custom Orders",
+                "url": "/custom-orders",
+                "page_type": "landing",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            },
+            {
+                "id": 207,
+                "label": "Contact",
+                "title": "Contact Us",
+                "url": "/contact-us",
+                "page_type": "contact",
+                "nav_type": "dropdown",
+                "is_group": false,
+                "parent_id": null
+            }
+        ]
+    },
+    "global_components": {
+        "header": {
+            "note": "Build a single shared Header component used on every page.",
+            "contains": {
+                "logo": "Display the primary logo from business.logo (use asset_map.brand for local path). Apply logo_display_note for correct sizing.",
+                "navigation": "Render the navigation.items array as the main nav menu. On mobile, collapse to a hamburger menu.",
+                "cta_button": "Include a prominent CTA button linking to /contact-us"
+            }
+        },
+        "footer": {
+            "note": "Build a single shared Footer component used on every page.",
+            "contains": {
+                "logo": "Display the inverted/white logo if available (business.inverted_logo_url), otherwise the primary logo.",
+                "nav_links": "Repeat the main navigation links.",
+                "business_info": "Display business name (Walnutterz) and tagline.",
+                "copyright": "Include a copyright line with the business name and current year.",
+                "products_link": "Include a link to the shop/products section.",
+                "blog_link": "Include a link to the blog section."
+            }
+        },
+        "typography": {
+            "note": "Apply these font families globally via CSS or your theme configuration."
+        },
+        "seo_head": {
+            "note": "Each page must render its own <head> meta tags. Use the page-level fields first, then fall back to the site-wide values in seo.fallback_meta_* and seo.fallback_open_graph.*.",
+            "contains": {
+                "title": "Use page_seo.title if set, otherwise seo.fallback_meta_title, otherwise derive from the page title and business name.",
+                "description": "Use page_seo.description if set, otherwise seo.fallback_meta_description, otherwise write a concise meta description from the page content.",
+                "canonical": "Set a canonical URL for each page.",
+                "og_tags": "Render <meta property=\"og:title|og:description|og:image|og:type\"> from page.open_graph (already cascade-resolved — page override → page SEO → fallback OG → fallback meta). image_local is the path under /public to reference in <meta og:image>.",
+                "twitter_tags": "Render <meta name=\"twitter:card\"> using page.open_graph.twitter_card, plus twitter:title/description/image mirroring the OG values.",
+                "schema": "Implement the schema type from seo.schema_type. Use the seo.schema_json if provided.",
+                "robots": "Apply seo.robots directive as a <meta name=\"robots\"> tag.",
+                "favicon": "Reference the favicon from asset_map.brand (look for role containing \"Favicon\")."
+            }
+        },
+        "robots_and_sitemap": {
+            "note": "Generate both files before deployment. Full settings are in seo.robots_txt, seo.sitemap, and seo.ai_crawler_policy.",
+            "robots_txt": "Create robots.txt at the project root. Disallow the paths listed in seo.robots_txt.disallow_paths. Add Crawl-delay if seo.robots_txt.crawl_delay is set. Apply AI crawler directives based on seo.ai_crawler_policy (block_training = block GPTBot/Google-Extended/CCBot/anthropic-ai/claudebot/Bytespider; block_all = also block PerplexityBot/YouBot; custom = apply seo.ai_crawler_custom per-crawler settings). Always reference the sitemap URL.",
+            "sitemap_xml": "Generate an XML sitemap. Only include pages whose page_type appears in seo.sitemap.include_page_types. Use seo.sitemap.changefreq as the default changefreq. Set priority: home=1.0, service/about=0.8, standard=0.7, landing/blog=0.6, others=0.5. Use the production domain."
+        }
+    },
+    "assets": [
+        {
+            "filename": "Walnutterz logo.jpg",
+            "type": "logo",
+            "mime": "image/webp",
+            "size_kb": 45.100000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/logo_6a3f91366b95d4.61930200.webp",
+            "public_path": "assets/brand/Walnutterz logo.jpg",
+            "disk_path": "public/assets/brand/Walnutterz logo.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "England.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 41.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9219518974.30933772.webp",
+            "public_path": "assets/images/England.jpg",
+            "disk_path": "public/assets/images/England.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "World Cup 2026.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 51.399999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f92c989dea8.48101828.webp",
+            "public_path": "assets/images/World Cup 2026.jpg",
+            "disk_path": "public/assets/images/World Cup 2026.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Walnutters_SHELF_01.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 88.099999999999994,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f92e6b2dc27.37744500.webp",
+            "public_path": "assets/images/Walnutters_SHELF_01.jpg",
+            "disk_path": "public/assets/images/Walnutters_SHELF_01.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "WALNUTTERS_TEAM_02.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 149.09999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f930aab26f1.16043017.webp",
+            "public_path": "assets/images/WALNUTTERS_TEAM_02.jpg",
+            "disk_path": "public/assets/images/WALNUTTERS_TEAM_02.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Paints + Brushes.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 50.399999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f932e011907.26499937.webp",
+            "public_path": "assets/images/Paints + Brushes.jpg",
+            "disk_path": "public/assets/images/Paints + Brushes.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Walnutters_FACUP_WIMLIV.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 158.69999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9354b376e6.91573080.webp",
+            "public_path": "assets/images/Walnutters_FACUP_WIMLIV.jpg",
+            "disk_path": "public/assets/images/Walnutters_FACUP_WIMLIV.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Back of the Net.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 94.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9430044714.72611669.webp",
+            "public_path": "assets/images/Back of the Net.jpg",
+            "disk_path": "public/assets/images/Back of the Net.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Birthday Gifts.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 35.799999999999997,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f94c19e2ca7.41192864.webp",
+            "public_path": "assets/images/Birthday Gifts.jpg",
+            "disk_path": "public/assets/images/Birthday Gifts.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Huddersfield Town.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 28.899999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95bc229628.48542881.webp",
+            "public_path": "assets/images/Huddersfield Town.jpg",
+            "disk_path": "public/assets/images/Huddersfield Town.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "France.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 33.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95c68da549.52392076.webp",
+            "public_path": "assets/images/France.jpg",
+            "disk_path": "public/assets/images/France.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Side shot.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 49.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95ce3efb01.68220307.webp",
+            "public_path": "assets/images/Side shot.jpg",
+            "disk_path": "public/assets/images/Side shot.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Oli and Paul.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 62.100000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95d4914029.39001947.webp",
+            "public_path": "assets/images/Oli and Paul.jpg",
+            "disk_path": "public/assets/images/Oli and Paul.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Brazil.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 41.600000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95da8ae9e3.04874327.webp",
+            "public_path": "assets/images/Brazil.jpg",
+            "disk_path": "public/assets/images/Brazil.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "World Cup 2026.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 51.399999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97dc3418c0.99207624.webp",
+            "public_path": "assets/images/about/World Cup 2026.jpg",
+            "disk_path": "public/assets/images/about/World Cup 2026.jpg",
+            "page": "About",
+            "usage_context": null
+        },
+        {
+            "filename": "WALNUTTERS_TEAM_02.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 149.09999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97efc00257.49062208.webp",
+            "public_path": "assets/images/about/WALNUTTERS_TEAM_02.jpg",
+            "disk_path": "public/assets/images/about/WALNUTTERS_TEAM_02.jpg",
+            "page": "About",
+            "usage_context": null
+        },
+        {
+            "filename": "Walnutters_SHELF_01.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 88.099999999999994,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97fd13bd46.28641797.webp",
+            "public_path": "assets/images/about/Walnutters_SHELF_01.jpg",
+            "disk_path": "public/assets/images/about/Walnutters_SHELF_01.jpg",
+            "page": "About",
+            "usage_context": null
+        },
+        {
+            "filename": "Back of the Net.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 94.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9a1e00a6a0.42018586.webp",
+            "public_path": "assets/images/testimonials/Back of the Net.jpg",
+            "disk_path": "public/assets/images/testimonials/Back of the Net.jpg",
+            "page": "Testimonials",
+            "usage_context": null
+        },
+        {
+            "filename": "Leeds United Home.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 93.599999999999994,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa86b55afb5.42575457.webp",
+            "public_path": "assets/images/Leeds United Home.jpg",
+            "disk_path": "public/assets/images/Leeds United Home.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Leeds United Away.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 23.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa8750b23a4.15755578.webp",
+            "public_path": "assets/images/Leeds United Away.jpg",
+            "disk_path": "public/assets/images/Leeds United Away.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Holland.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 29.300000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa87d8b9690.75366520.webp",
+            "public_path": "assets/images/Holland.jpg",
+            "disk_path": "public/assets/images/Holland.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Liverpool.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 106.09999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88130b790.29185139.webp",
+            "public_path": "assets/images/Liverpool.jpg",
+            "disk_path": "public/assets/images/Liverpool.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Crystal Palace.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 51.899999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88530f235.71976010.webp",
+            "public_path": "assets/images/Crystal Palace.jpg",
+            "disk_path": "public/assets/images/Crystal Palace.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "Thornes Juniors.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 29.699999999999999,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd39a56062.10605217.webp",
+            "public_path": "assets/images/Thornes Juniors.jpg",
+            "disk_path": "public/assets/images/Thornes Juniors.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "England pair.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 53.100000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd473234e3.02293098.webp",
+            "public_path": "assets/images/England pair.jpg",
+            "disk_path": "public/assets/images/England pair.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "England team rear view.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 38.600000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd4fb1c761.10317385.webp",
+            "public_path": "assets/images/England team rear view.jpg",
+            "disk_path": "public/assets/images/England team rear view.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "England team side view.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 36.5,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd58c6eec8.76676364.webp",
+            "public_path": "assets/images/England team side view.jpg",
+            "disk_path": "public/assets/images/England team side view.jpg",
+            "page": null,
+            "usage_context": null
+        },
+        {
+            "filename": "World Cup teams v2.jpg",
+            "type": "image",
+            "mime": "image/webp",
+            "size_kb": 55.600000000000001,
+            "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd69c34696.67977282.webp",
+            "public_path": "assets/images/World Cup teams v2.jpg",
+            "disk_path": "public/assets/images/World Cup teams v2.jpg",
+            "page": null,
+            "usage_context": null
+        }
+    ],
+    "asset_map": {
+        "instructions": "Download every asset from source_url before writing any code. Each asset entry includes: source_url (download from here), public_path (the URL reference to use in your code e.g. in src= or url() — this is relative to your project public root), and disk_path (where to save the file on disk relative to your project root). Framework guidance: React/Next.js/Vite — save files to public/{public_path} and reference as /{public_path} in JSX/CSS. Plain HTML — save to /{public_path} relative to your web root. PHP/Laravel — save to public/{public_path}. Never hotlink to source_url in the built site.",
+        "brand": [
+            {
+                "filename": "Walnutterz logo.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/logo_6a3f91366b95d4.61930200.webp",
+                "public_path": "assets/brand/Walnutterz logo.jpg",
+                "disk_path": "public/assets/brand/Walnutterz logo.jpg",
+                "usage_context": null,
+                "role": "Primary logo — use in site header and footer. In React: <img src=\"/assets/brand/filename\" />"
+            }
+        ],
+        "by_page": [
+            {
+                "page": "About",
+                "slug": "about",
+                "assets": [
+                    {
+                        "filename": "World Cup 2026.jpg",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97dc3418c0.99207624.webp",
+                        "public_path": "assets/images/about/World Cup 2026.jpg",
+                        "disk_path": "public/assets/images/about/World Cup 2026.jpg",
+                        "usage_context": null
+                    },
+                    {
+                        "filename": "WALNUTTERS_TEAM_02.jpg",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97efc00257.49062208.webp",
+                        "public_path": "assets/images/about/WALNUTTERS_TEAM_02.jpg",
+                        "disk_path": "public/assets/images/about/WALNUTTERS_TEAM_02.jpg",
+                        "usage_context": null
+                    },
+                    {
+                        "filename": "Walnutters_SHELF_01.jpg",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f97fd13bd46.28641797.webp",
+                        "public_path": "assets/images/about/Walnutters_SHELF_01.jpg",
+                        "disk_path": "public/assets/images/about/Walnutters_SHELF_01.jpg",
+                        "usage_context": null
+                    }
+                ]
+            },
+            {
+                "page": "Testimonials",
+                "slug": "testimonials",
+                "assets": [
+                    {
+                        "filename": "Back of the Net.jpg",
+                        "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9a1e00a6a0.42018586.webp",
+                        "public_path": "assets/images/testimonials/Back of the Net.jpg",
+                        "disk_path": "public/assets/images/testimonials/Back of the Net.jpg",
+                        "usage_context": null
+                    }
+                ]
+            }
+        ],
+        "unassigned": [
+            {
+                "filename": "England.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9219518974.30933772.webp",
+                "public_path": "assets/images/England.jpg",
+                "disk_path": "public/assets/images/England.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "World Cup 2026.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f92c989dea8.48101828.webp",
+                "public_path": "assets/images/World Cup 2026.jpg",
+                "disk_path": "public/assets/images/World Cup 2026.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Walnutters_SHELF_01.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f92e6b2dc27.37744500.webp",
+                "public_path": "assets/images/Walnutters_SHELF_01.jpg",
+                "disk_path": "public/assets/images/Walnutters_SHELF_01.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "WALNUTTERS_TEAM_02.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f930aab26f1.16043017.webp",
+                "public_path": "assets/images/WALNUTTERS_TEAM_02.jpg",
+                "disk_path": "public/assets/images/WALNUTTERS_TEAM_02.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Paints + Brushes.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f932e011907.26499937.webp",
+                "public_path": "assets/images/Paints + Brushes.jpg",
+                "disk_path": "public/assets/images/Paints + Brushes.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Walnutters_FACUP_WIMLIV.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9354b376e6.91573080.webp",
+                "public_path": "assets/images/Walnutters_FACUP_WIMLIV.jpg",
+                "disk_path": "public/assets/images/Walnutters_FACUP_WIMLIV.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Back of the Net.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f9430044714.72611669.webp",
+                "public_path": "assets/images/Back of the Net.jpg",
+                "disk_path": "public/assets/images/Back of the Net.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Birthday Gifts.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f94c19e2ca7.41192864.webp",
+                "public_path": "assets/images/Birthday Gifts.jpg",
+                "disk_path": "public/assets/images/Birthday Gifts.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Huddersfield Town.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95bc229628.48542881.webp",
+                "public_path": "assets/images/Huddersfield Town.jpg",
+                "disk_path": "public/assets/images/Huddersfield Town.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "France.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95c68da549.52392076.webp",
+                "public_path": "assets/images/France.jpg",
+                "disk_path": "public/assets/images/France.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Side shot.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95ce3efb01.68220307.webp",
+                "public_path": "assets/images/Side shot.jpg",
+                "disk_path": "public/assets/images/Side shot.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Oli and Paul.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95d4914029.39001947.webp",
+                "public_path": "assets/images/Oli and Paul.jpg",
+                "disk_path": "public/assets/images/Oli and Paul.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Brazil.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3f95da8ae9e3.04874327.webp",
+                "public_path": "assets/images/Brazil.jpg",
+                "disk_path": "public/assets/images/Brazil.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Leeds United Home.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa86b55afb5.42575457.webp",
+                "public_path": "assets/images/Leeds United Home.jpg",
+                "disk_path": "public/assets/images/Leeds United Home.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Leeds United Away.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa8750b23a4.15755578.webp",
+                "public_path": "assets/images/Leeds United Away.jpg",
+                "disk_path": "public/assets/images/Leeds United Away.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Holland.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa87d8b9690.75366520.webp",
+                "public_path": "assets/images/Holland.jpg",
+                "disk_path": "public/assets/images/Holland.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Liverpool.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88130b790.29185139.webp",
+                "public_path": "assets/images/Liverpool.jpg",
+                "disk_path": "public/assets/images/Liverpool.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Crystal Palace.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a3fa88530f235.71976010.webp",
+                "public_path": "assets/images/Crystal Palace.jpg",
+                "disk_path": "public/assets/images/Crystal Palace.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "Thornes Juniors.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd39a56062.10605217.webp",
+                "public_path": "assets/images/Thornes Juniors.jpg",
+                "disk_path": "public/assets/images/Thornes Juniors.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "England pair.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd473234e3.02293098.webp",
+                "public_path": "assets/images/England pair.jpg",
+                "disk_path": "public/assets/images/England pair.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "England team rear view.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd4fb1c761.10317385.webp",
+                "public_path": "assets/images/England team rear view.jpg",
+                "disk_path": "public/assets/images/England team rear view.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "England team side view.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd58c6eec8.76676364.webp",
+                "public_path": "assets/images/England team side view.jpg",
+                "disk_path": "public/assets/images/England team side view.jpg",
+                "usage_context": null
+            },
+            {
+                "filename": "World Cup teams v2.jpg",
+                "source_url": "https://webbriefai.co.uk/assets/uploads/26/asset_6a42bd69c34696.67977282.webp",
+                "public_path": "assets/images/World Cup teams v2.jpg",
+                "disk_path": "public/assets/images/World Cup teams v2.jpg",
+                "usage_context": null
+            }
+        ]
+    },
+    "functionality": [
+        {
+            "title": "Featured Figure of the Week",
+            "description": "I would like this feature to promote the best selling Walnutterz model of the week",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\nThe \"Featured Figure of the Week\" is a feature designed to highlight the best-selling Walnutterz model on the website's Shop Section each week. The feature aims to attract potential customers by showcasing popular products, thereby increasing sales and enhancing customer engagement through social proof.\n\n## User Stories\n- As an end-user, I want to see the best-selling Walnutterz model prominently displayed in the Shop Section so that I can quickly identify popular products.\n- As an admin, I want the featured model to be automatically updated based on weekly sales data so that I don't have to manually select it each week.\n- As an end-user, I want to see brief customer reviews with a star rating for the featured model so that I can make informed purchasing decisions.\n\n## Functional Requirements\n1. The system shall automatically determine the best-selling Walnutterz model based on sales data from the previous week.\n2. The featured model shall be updated every Monday at 12:00 AM server time.\n3. The featured model shall be displayed in the Shop Section of the website.\n4. The display for the featured model shall include:\n   - Product name\n   - Product image\n   - Brief customer reviews (up to three reviews)\n   - Star rating out of 10 for each review\n5. The system shall automatically pull the latest customer reviews for the featured model.\n6. The reviews shall be concise and limited to a predefined character count (e.g., 150 characters).\n\n## Business Rules\n- The best-selling model is determined by the highest sales volume over the past week (Monday to Sunday).\n- Only models with at least one sale in the last week are eligible to be featured.\n\n## Data Requirements\n- Sales data must be captured and stored for each model on a weekly basis.\n- Customer reviews must include:\n  - Review text (string, max 150 characters)\n  - Star rating (integer, 1-10)\n  - Date of review (date)\n\n## User Interface Notes\n- The \"Featured Figure of the Week\" should be visually integrated into the Shop Section without additional design elements like badges or banners.\n- Reviews should be displayed in a readable format, with the star rating clearly visible.\n\n## Integrations\n- The feature must integrate with the existing sales data system to retrieve weekly sales figures.\n- The feature must integrate with the customer reviews system to fetch and display reviews.\n\n## Notifications & Communications\n- No notifications or communications are triggered by this feature.\n\n## Admin / Management\n- The feature does not require manual intervention for updating the featured model.\n\n## Edge Cases & Error Handling\n- If no sales data is available for the previous week, the featured model should not be updated, and a default message should be displayed indicating no featured figure is available.\n- If there are no reviews available for the featured model, a default message should display stating \"No reviews available.\"\n\n## Out of Scope\n- Manual selection of the featured model by admins.\n- Special design elements or highlights for the featured model.\n- Detailed review management or editing by admins.\n\n## Open Questions\n- What is the predefined character count limit for the review text?\n- How should the system handle ties in sales volume between models?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "The Making of a Walnutterz",
+            "description": "People love seeing how handmade products are created.\r\n\r\nShow photos or short videos of:\r\n\r\nThe walnut shell before carving\r\nCarving the body\r\nHand painting\r\nAdding fine details\r\nThe finished figure\r\nPackaging the order\r\n\r\nThis helps justify the premium price.",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\n\"The Making of a Walnutterz\" is a feature designed to showcase the craftsmanship behind Walnutterz's handmade products. It provides a visual journey through the creation process, helping to justify the premium pricing of the products. A video under 60 seconds will demonstrate key stages of production, offering an engaging experience for customers interested in the brand's artisanal process.\n\n## User Stories\n- As a customer, I want to watch a video of the product creation process so that I can appreciate the craftsmanship and understand the premium pricing.\n- As a business owner, I want to track how many people view the video so that I can gauge customer interest and engagement with the content.\n\n## Functional Requirements\n1. The website must include a dedicated section for \"The Making of a Walnutterz\" on a relevant page (e.g., \"How It's Made\" or \"Our Craftsmanship\").\n2. The section must embed a video player to showcase the crafting process video.\n3. The video must be user-initiated, requiring a click to start playing.\n4. The video player must include controls for play, pause, and mute.\n5. The section must integrate with an analytics tool (e.g., Google Analytics) to track:\n   - The number of video views.\n   - The number of visits to the section containing the video.\n\n## Business Rules\n- The video must not autoplay to ensure a user-controlled experience.\n- The section should not be the main focus of the homepage but should be accessible for interested visitors.\n\n## Data Requirements\n- Track and store data on video views and section visits for analytics.\n- Use Google Analytics or similar to capture interaction data.\n\n## User Interface Notes\n- The video section should be styled consistently with the existing site branding, using the same colors and fonts.\n- The video should be embedded in a way that it is accessible but not overly prominent.\n- No additional text or narration is required for the video.\n\n## Integrations\n- Integrate with Google Analytics to track user interactions with the video and the section.\n\n## Notifications & Communications\n- No specific notifications or communications are triggered by this feature.\n\n## Admin / Management\n- The business should be able to access analytics data to review video engagement and section visits.\n\n## Edge Cases & Error Handling\n- The video should have a fallback image or message if it fails to load.\n- Ensure that the video player is compatible with major browsers and devices.\n\n## Out of Scope\n- Additional text or narration for the video.\n- Making the video the main focus of the homepage.\n\n## Open Questions\n- Are there specific branding elements or themes that should be incorporated into the styling of the video section?\n- Should there be any specific call-to-action buttons near the video to encourage further engagement, such as \"Learn More\" or \"Shop Now\"?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "Design Your Own Walnutterz",
+            "description": "One of your biggest selling points.\r\n\r\nAllow customers to submit:\r\n\r\nTeam photo\r\nKit photo\r\nClub badge\r\nFavourite player\r\nHair colour\r\nShirt number\r\nPose\r\nPersonal message\r\n\r\nThen you can provide a mock-up before making the figure.",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\n\nThe \"Design Your Own Walnutterz\" feature allows customers to personalize their Walnutterz figures by submitting specific design elements via an online form. This feature is intended to enhance user engagement by allowing customers to customize their purchases with personal touches and receive a mock-up of their design before the final product is made.\n\n## User Stories\n\n- As a customer, I want to submit my personalized design elements so that I can receive a custom Walnutterz figure.\n- As a customer, I want to receive an immediate confirmation email after submitting my design to ensure my request was received.\n- As a customer, I want to receive a mock-up of my design via email within 24 hours so that I can approve it before production.\n- As an admin, I want to review and manage customer submissions through an admin interface to efficiently handle and fulfill orders.\n\n## Functional Requirements\n\n1. The system must provide an online form for customers to submit their design elements, including file uploads and text inputs.\n2. The form must include the following inputs:\n   - File Uploads: Team photo, Kit photo, Club badge\n   - Text Inputs: Favourite player, Hair colour, Shirt number, Pose, Personal message\n3. The system must support file uploads of common image formats (e.g., JPEG, PNG) with a maximum file size of 5MB per file.\n4. Upon form submission, the system must send an automatic confirmation email to the customer, stating that a mock-up will be provided within 24 hours.\n5. The system must allow admins to access an interface to review and manage submissions.\n6. The system must store submissions securely, ensuring compliance with GDPR and other relevant data protection regulations.\n7. The system must allow admins to send mock-up images to customers via email within 24 hours of submission.\n\n## Business Rules\n\n- Customers must provide all required fields in the form to successfully submit their design.\n- File uploads are limited to a maximum of 5MB per file.\n- The mock-up must be sent to the customer within 24 hours of form submission.\n- All customer data must be handled in compliance with GDPR regulations.\n\n## Data Requirements\n\n- Capture and store the following data:\n  - `team_photo`: File (Image)\n  - `kit_photo`: File (Image)\n  - `club_badge`: File (Image)\n  - `favourite_player`: String\n  - `hair_colour`: String\n  - `shirt_number`: String\n  - `pose`: String\n  - `personal_message`: String\n  - `customer_email`: String\n- Data must be stored securely and retained for a period compliant with GDPR.\n\n## User Interface Notes\n\n- The customer submission form must be accessible from the main website.\n- The form must include clear labels and instructions for each input field.\n- The admin interface must allow easy navigation to view and manage customer submissions.\n\n## Integrations\n\n- Email service to send confirmation and mock-up emails to customers.\n\n## Notifications & Communications\n\n- An automatic confirmation email must be sent to the customer immediately after form submission.\n- A follow-up email with the mock-up images attached must be sent to the customer within 24 hours of submission.\n\n## Admin / Management\n\n- The admin interface must allow authorized personnel to view, manage, and track customer submissions.\n- Admins must have the ability to send mock-up images to customers via the admin interface.\n\n## Edge Cases & Error Handling\n\n- If a file upload exceeds the maximum size, the system must provide a user-friendly error message and prompt the user to upload a smaller file.\n- If the form submission fails, the system must notify the user and encourage them to try again or contact support.\n\n## Out of Scope\n\n- The feature does not include a customer login system for accessing submissions.\n- The feature does not provide an in-app notification system; all communications are email-based.\n\n## Open Questions\n\n- Are there specific guidelines or templates for the mock-up images that need to be followed?\n- Is there a preferred email service provider for sending the confirmation and mock-up emails?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "Customer Gallery",
+            "description": "Invite customers to send photos of their Walnutterz figures on display.\r\n\r\nCategories could include:\r\n\r\nFootball rooms\r\nHome bars\r\nMan caves\r\nTrophy cabinets\r\nChildren's bedrooms\r\nClubhouses",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\nThe \"Customer Gallery\" feature allows Walnutterz customers to share photos of their figures on display in various settings, such as football rooms, home bars, and more. Customers can submit their images via email or social media, which are then automatically uploaded and categorized for display in a dynamic slideshow on the website. This feature aims to enhance customer engagement and showcase unique setups of Walnutterz figures.\n\n## User Stories\n- As a customer, I want to submit my photos via email or social media so that I can share my Walnutterz display with the community.\n- As a customer, I want my photos to be automatically categorized and displayed in the gallery so that it’s easy for others to view them.\n- As an admin, I want submitted photos to be automatically uploaded to the gallery so that I don't need to manually review each one.\n\n## Functional Requirements\n1. Customers can submit photos via email to a designated Walnutterz email address.\n2. Customers can submit photos via social media using specified hashtags or direct messages.\n3. The system automatically uploads and categorizes submitted photos into the following categories: Football rooms, Home bars, Man caves, Trophy cabinets, Children's bedrooms, Clubhouses.\n4. The gallery displays photos in a slideshow format, playing automatically.\n5. Each photo in the slideshow is displayed for up to 15 seconds.\n6. Photos are displayed in a randomized order each time the gallery is viewed.\n7. The customer's name is displayed alongside each photo in the slideshow.\n\n## Business Rules\n- Photos must be submitted with the correct hashtags or via specified channels for automatic inclusion.\n- Only JPEG and PNG file formats are supported for photo submissions.\n\n## Data Requirements\n- Store customer-submitted photo files (JPEG, PNG).\n- Store metadata including customer's name, submission date, and category.\n- Maintain records of submissions for a minimum of one year.\n\n## User Interface Notes\n- Implement a slideshow UI with automatic transitions.\n- Display customer's name as a caption under each photo in the slideshow.\n- Ensure the gallery is accessible and responsive across devices.\n\n## Integrations\n- Integrate with social media platforms to collect submissions via hashtags and direct messages.\n\n## Notifications & Communications\n- No notifications are triggered by this feature.\n\n## Admin / Management\n- Admins do not need to manually approve photos; the process is automated.\n\n## Edge Cases & Error Handling\n- If a submission lacks the required hashtags or metadata, it should not be included automatically.\n- Handle unsupported file formats by rejecting the upload and sending an automated response to the user (if applicable).\n\n## Out of Scope\n- Manual review or approval process for photo submissions.\n- Manual categorization of photos by admins.\n- Integration with additional, non-specified social media platforms.\n\n## Open Questions\n- What specific social media platforms should be integrated for submissions?\n- Is there a need for a backend interface for admins to view or manage submissions post-upload?\n- How will incorrect or inappropriate submissions be handled after they are uploaded?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "Meet the Maker",
+            "description": "This is one of the most valuable pages for a handcrafted business.\r\n\r\nInclude:\r\n\r\nA photo of yourself at work\r\nWhy you started Walnutterz\r\nYour love of football\r\nYour carving process\r\nWhy you chose walnut shells\r\n\r\nPeople often buy from the person as much as the product.",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\n\nThe \"Meet the Maker\" feature provides a dedicated page on the Walnutterz website that allows visitors to connect with the creator of the handcrafted products. This page includes a dynamic image and a cohesive narrative that covers the background and passion of the maker. The purpose is to enhance customer engagement by sharing the personal story behind Walnutterz, thereby fostering a stronger connection between the maker and potential buyers.\n\n## User Stories\n\n- As an end-user, I want to view the maker's story and image so that I can feel a personal connection to the products I am purchasing.\n- As an admin, I want to easily update the maker's image and caption so that I can keep the content fresh and relevant.\n- As an end-user, I want the page to be visually consistent with the rest of the website so that my browsing experience is seamless.\n\n## Functional Requirements\n\n1. The page must display a photo of the maker at work.\n2. The page must allow the admin to upload and update the maker's photo via the admin panel.\n3. The page must allow the admin to add and update a caption for the photo.\n4. The page must present a cohesive narrative that includes:\n   - Why the maker started Walnutterz.\n   - The maker's love of football.\n   - The maker's carving process.\n   - The reasons for choosing walnut shells.\n5. The page design must match the existing style of the Walnutterz website.\n6. The page must be mobile-optimized to ensure a good user experience on all devices.\n\n## Business Rules\n\n- The photo and caption must be updated through the admin panel to maintain consistency and security.\n- The narrative content should be presented in a single, integrated section to maintain a cohesive storytelling format.\n\n## Data Requirements\n\n- Photo: Uploaded images should be stored with metadata (e.g., upload date, caption). \n- Caption: Text field associated with the photo, editable by the admin.\n- Narrative: Text content stored as a single entry in the database, editable by the admin.\n\n## User Interface Notes\n\n- The page should be a single, continuous scroll to enhance storytelling.\n- The photo and narrative should be prominently displayed.\n- Ensure text readability and image quality on both desktop and mobile devices.\n- The admin panel should include a simple interface for updating the photo and its caption.\n\n## Integrations\n\n- No external integrations are required for this feature.\n\n## Notifications & Communications\n\n- No specific notifications or communications are triggered by this feature.\n\n## Admin / Management\n\n- The admin panel should provide an interface for uploading a new image and editing its caption.\n- The admin panel should allow editing of the narrative content.\n\n## Edge Cases & Error Handling\n\n- If an image upload fails, display an error message to the admin and prompt to try again.\n- Ensure that the image and caption are not displayed if an image has not been uploaded.\n\n## Out of Scope\n\n- Text-to-speech accessibility features are not included.\n- Unique styling for this page that differs from the rest of the website is not included.\n\n## Open Questions\n\n- None identified; all requirements have been clarified.",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "The Football Time Tunnel",
+            "description": "Visitors click on a decade to explore iconic players and moments.\r\n\r\n1960s\r\n\r\nWorld Cup winners\r\nBobby Charlton\r\nGeorge Best\r\n\r\n1970s\r\n\r\nJohan Cruyff\r\nKenny Dalglish\r\nKevin Keegan\r\n\r\n1980s\r\n\r\nDiego Maradona\r\nRuud Gullit\r\nJohn Barnes\r\n\r\n1990s\r\n\r\nPaul Gascoigne\r\nEric Cantona\r\nAlan Shearer\r\n\r\n2000s\r\n\r\nThierry Henry\r\nSteven Gerrard\r\nDavid Beckham\r\n\r\n2010s\r\n\r\nLionel Messi\r\nCristiano Ronaldo\r\nLuka Modrić\r\n\r\nVisitors could browse by era, read a short story about each player, and then order the corresponding Walnutterz figure. That combines nostalgia, storytelling, and shopping in a way that fits your brand perfectly.\r\n\r\nWith features like these, your website becomes more than a catalogue—it becomes a destination for football fans and collectors who enjoy reliving the history of the game while discovering unique handcrafted keepsakes.",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "# Functional Specification: The Football Time Tunnel\n\n## Overview\nThe Football Time Tunnel is a feature on the Walnutterz website designed to enhance user engagement by allowing visitors to explore iconic football players and moments from different decades. It combines nostalgia, storytelling, and shopping, transforming the website into a destination for football fans and collectors. Each decade has its own page with player stories and the option to purchase corresponding Walnutterz figures.\n\n## User Stories\n- As a visitor, I want to click on a decade to explore iconic players and moments so that I can relive football history.\n- As a visitor, I want to read short stories about each player so that I can learn more about their contributions to the sport.\n- As a visitor, I want to order Walnutterz figures of my favorite players so that I can add them to my collection.\n- As an admin, I want to add and edit player stories so that I can keep the content updated and accurate.\n\n## Functional Requirements\n1. The system shall display a timeline navigation bar that allows users to select a decade.\n2. The system shall open a separate page for each decade when a decade is selected from the timeline.\n3. Each decade page shall include:\n   - A brief narrative overview of the decade.\n   - A list of iconic players with a short story for each player.\n   - An option to order Walnutterz figures for each player.\n4. The system shall provide a content management interface for admins to add, edit, and delete player stories and decade narratives.\n5. The system shall ensure all pages are responsive and maintain visual consistency with the Walnutterz brand.\n\n## Business Rules\n- Each player must be associated with a specific decade.\n- Walnutterz figures must be linked to the correct players for ordering.\n- Decade pages should only be accessible through the timeline navigation.\n\n## Data Requirements\n- **Decade Overview**: Text field for narrative (string, max 1000 characters).\n- **Player Stories**: Text field for each player (string, max 500 characters).\n- **Player Name**: Text field (string, max 100 characters).\n- **Walnutterz Link**: URL field linking to the product page (string).\n\n## User Interface Notes\n- A timeline navigation bar should be prominently placed at the top or side of the page.\n- Each decade page should have a consistent layout, featuring the decade story at the top and player stories below.\n- Clicking on a player should expand their story and reveal an \"Order\" button linking to the Walnutterz product page.\n\n## Integrations\n- The feature must integrate with the existing Walnutterz eCommerce system to facilitate product ordering.\n- A content management system (CMS) should be integrated to allow admin updates.\n\n## Notifications & Communications\n- No specific notifications or communications are triggered by this feature.\n\n## Admin / Management\n- Admins need a backend interface to manage decade and player stories.\n- The admin interface should allow for easy text updates and link management.\n\n## Edge Cases & Error Handling\n- If a decade or player story is missing, the system should display a default message indicating content is coming soon.\n- Ensure navigation works on all devices and browsers, handling any potential compatibility issues.\n\n## Out of Scope\n- Video content, detailed historical context, and additional multimedia not included.\n- Social media sharing features or external integrations are not part of this scope.\n\n## Open Questions\n- Are there any specific visual themes or branding elements that need to be incorporated into the decade stories?\n- Should there be an option for visitors to provide feedback or comments on player stories?\n- How frequently does the content need updating, and should this be automated in any way?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        },
+        {
+            "title": "Gift Finder",
+            "description": "Help visitors find the right product by occasion:\r\n\r\nBirthday\r\nFather's Day\r\nChristmas\r\nRetirement\r\nCoach Gift\r\nPlayer of the Match\r\nFootball Club Awards",
+            "status": "confirmed",
+            "confirmed": true,
+            "spec": "## Overview\nThe \"Gift Finder\" feature is designed to enhance the shopping experience on the Walnutterz website by allowing users to filter products based on specific occasions. This feature aims to help customers find the right products for events such as Birthdays, Father's Day, Christmas, Retirement, Coach Gifts, Player of the Match, and Football Club Awards. It will be implemented as an occasion-based filter on existing product listings, providing users with a personalized and efficient shopping journey.\n\n## User Stories\n- As a customer, I want to filter products by occasion so that I can find suitable gifts quickly.\n- As a customer, I want to apply multiple occasion filters simultaneously to see products suitable for several events.\n- As an admin, I want to manage and adjust the rules for occasion tagging based on product features so that the product categorization remains relevant and accurate.\n\n## Functional Requirements\n1. The system shall provide an occasion-based filter on the product listing page.\n2. Users shall be able to select multiple occasion filters at once to view relevant products.\n3. Products shall display occasion indication tags that reflect the occasions they are suitable for.\n4. The system shall automatically assign occasion tags to products based on predefined product features.\n5. The occasion tagging rules shall be adjustable via an admin interface.\n\n## Business Rules\n- Occasion tags must be generated based on specific product attributes and features.\n- The system should update tags automatically when product attributes change or new products are added.\n- Admins must be able to modify tagging rules without requiring developer intervention.\n\n## Data Requirements\n- Field: Occasion Tags (String Array) - Stores the list of occasions a product is suitable for.\n- Field: Product Features (Various) - Attributes used to determine occasion suitability.\n\n## User Interface Notes\n- The product listing page must include occasion filters as a sidebar or top bar component.\n- Each product card must display occasion tags prominently.\n- The occasion filter interface should allow users to select and deselect multiple occasions easily.\n\n## Integrations\n- The feature will integrate with existing product database systems to fetch product features and apply occasion tags.\n\n## Notifications & Communications\n- No specific notifications or communications are triggered by this feature.\n\n## Admin / Management\n- An admin interface is required to manage the rules for occasion tagging.\n- The interface should allow admins to view current rules, modify criteria, and apply changes in real-time.\n\n## Edge Cases & Error Handling\n- If no products match the selected occasion filters, the system should display a friendly message indicating no results were found.\n- The system must handle cases where product features do not match any predefined tagging rules, potentially defaulting to a general category.\n\n## Out of Scope\n- The feature will not include a detailed description or preview of what each occasion filter includes.\n\n## Open Questions\n- What specific product features will be used to determine occasion suitability for automated tagging?\n- Will there be any need for localization or customization of occasion names based on different regions or markets?\n- Should there be any analytics or reporting on how often each occasion is selected or how effective the filters are?",
+            "complexity": "high",
+            "flag": "MUST_IMPLEMENT"
+        }
+    ],
+    "implementation_checklist": [
+        "Build the full multi-page website with all pages listed in website_structure",
+        "Build the About page with all content, layout notes, and assets provided",
+        "Build the Contact page with all content, layout notes, and assets provided",
+        "Build the Testimonials page with all content, layout notes, and assets provided",
+        "Build the Highlight The Uniqueness And Craftsmanship Of Walnut Models More Prominently page with all content, layout notes, and assets provided",
+        "Build the Consider Offering A Quick Turnaround Option For Noncustom Orders page with all content, layout notes, and assets provided",
+        "Build the Home page with all content, layout notes, and assets provided",
+        "Build the About Us page with all content, layout notes, and assets provided",
+        "Build the Our Models page with all content, layout notes, and assets provided",
+        "Build the Shop page with all content, layout notes, and assets provided",
+        "Build the Custom Orders page with all content, layout notes, and assets provided",
+        "Build the Faqs page with all content, layout notes, and assets provided",
+        "Build the Contact Us page with all content, layout notes, and assets provided",
+        "Build the Blog page with all content, layout notes, and assets provided",
+        "Apply all SEO settings including meta titles, descriptions, and robots directives",
+        "Implement the structured data / schema.org markup defined in the SEO section",
+        "Build the product catalogue with all products listed in the products section",
+        "Implement Featured figure of the week",
+        "Implement The making of a walnutterz",
+        "Implement Design your own walnutterz",
+        "Implement Customer gallery",
+        "Implement Meet the maker",
+        "Implement The football time tunnel",
+        "Implement Gift finder",
+        "Use the provided brand assets (logo, favicon, inverted logo) throughout the site"
+    ]
+}
