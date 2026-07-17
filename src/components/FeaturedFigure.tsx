@@ -23,7 +23,7 @@ export default async function FeaturedFigure() {
             <div className="relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={featured.product.imagePath ?? "/assets/brand/Walnutterz logo.jpg"}
+                src={featured.product.imagePath ?? "/assets/brand/walnutterz-logo.png"}
                 alt={featured.product.name}
                 className="aspect-square w-full rounded-2xl border border-trim object-cover shadow-card"
               />

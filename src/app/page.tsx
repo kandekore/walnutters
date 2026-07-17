@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getPage } from "@/content/pages";
 import { getProducts } from "@/lib/products";
-import PageHero from "@/components/ui/PageHero";
+import HomeHero from "@/components/HomeHero";
 import ProductCard from "@/components/ProductCard";
 import FeaturedFigure from "@/components/FeaturedFigure";
 
@@ -35,7 +35,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <PageHero
+      <HomeHero
         eyebrow="The Original Walnut Head Football Figures"
         headline={page?.hero_headline ?? "Celebrate Football Nostalgia!"}
         subheadline={page?.hero_subheadline ?? undefined}

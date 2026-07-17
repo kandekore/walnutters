@@ -1,7 +1,7 @@
 export const site = {
   name: "Walnutterz",
   tagline: "The Original Walnut Head Football Figures: Reborn with a Twist",
-  logo: "/assets/brand/Walnutterz logo.jpg",
+  logo: "/assets/brand/walnutterz-logo.png",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   description:
     "Bespoke, hand-crafted and hand-painted walnut head football figures. Unique collectibles and gifts celebrating the players, clubs and moments that shaped the beautiful game.",

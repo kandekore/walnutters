@@ -5,11 +5,11 @@ import { footerNav, site } from "@/lib/site";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-24 bg-heading text-cream">
+    <footer className="bg-heading text-cream">
       <div className="container-x grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="inline-flex rounded-xl bg-white/95 p-2">
-            <Image src={site.logo} alt="Walnutterz" width={110} height={73} className="h-auto w-[100px]" />
+            <Image src={site.logo} alt="Walnutterz" width={110} height={104} className="h-auto w-[100px]" />
           </div>
           <p className="mt-4 text-sm text-cream/80">{site.tagline}</p>
           <div className="mt-4 flex gap-3">

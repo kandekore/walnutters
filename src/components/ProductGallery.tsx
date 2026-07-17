@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function ProductGallery({ images, alt }: { images: string[]; alt: string }) {
-  const gallery = images.length ? images : ["/assets/brand/Walnutterz logo.jpg"];
+  const gallery = images.length ? images : ["/assets/brand/walnutterz-logo.png"];
   const [active, setActive] = useState(gallery[0]);
 
   return (

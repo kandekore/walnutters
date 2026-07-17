@@ -23,7 +23,7 @@ export default function CartPage() {
               <div key={item.slug} className="card flex gap-4 p-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={item.imagePath ?? "/assets/brand/Walnutterz logo.jpg"}
+                  src={item.imagePath ?? "/assets/brand/walnutterz-logo.png"}
                   alt={item.name}
                   className="h-24 w-24 flex-shrink-0 rounded-lg border border-trim object-cover"
                 />

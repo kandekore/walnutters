@@ -25,10 +25,10 @@ export default function Header() {
           <Image
             src={site.logo}
             alt="Walnutterz"
-            width={92}
-            height={61}
+            width={108}
+            height={102}
             priority
-            className="h-auto w-[84px] md:w-[92px]"
+            className="h-auto w-[100px] md:w-[108px]"
           />
         </Link>
 
@@ -43,7 +43,7 @@ export default function Header() {
                 onMouseLeave={() => setOpenGroup(null)}
               >
                 <button
-                  className="px-3 py-2 text-sm font-semibold text-heading hover:text-primary transition"
+                  className="px-3 py-2 text-base font-semibold text-heading hover:text-primary transition"
                   aria-expanded={openGroup === item.label}
                 >
                   {item.label} <span className="text-primary">▾</span>
@@ -66,7 +66,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href!}
-                className={`px-3 py-2 text-sm font-semibold transition hover:text-primary ${
+                className={`px-3 py-2 text-base font-semibold transition hover:text-primary ${
                   pathname === item.href ? "text-primary" : "text-heading"
                 }`}
               >

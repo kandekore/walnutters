@@ -10,7 +10,7 @@ export default function ProductCard({ product }: { product: ProductView }) {
       <Link href={`/products/${product.slug}`} className="relative block aspect-square overflow-hidden bg-cream">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={product.imagePath ?? "/assets/brand/Walnutterz logo.jpg"}
+          src={product.imagePath ?? "/assets/brand/walnutterz-logo.png"}
           alt={product.name}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           loading="lazy"

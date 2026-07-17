@@ -32,7 +32,7 @@ export default async function AdminProductsPage() {
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.imagePath ?? "/assets/brand/Walnutterz logo.jpg"} alt={p.name} className="h-11 w-11 rounded-md border border-trim object-cover" />
+                    <img src={p.imagePath ?? "/assets/brand/walnutterz-logo.png"} alt={p.name} className="h-11 w-11 rounded-md border border-trim object-cover" />
                     <div>
                       <p className="font-semibold text-heading">{p.name}</p>
                       <p className="text-xs text-ink/50">/{p.slug}</p>

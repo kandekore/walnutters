@@ -33,7 +33,7 @@ export default async function AdminOrderDetail({ params }: Params) {
             {order.items.map((i) => (
               <li key={i.id} className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={i.imagePath ?? "/assets/brand/Walnutterz logo.jpg"} alt={i.name} className="h-12 w-12 rounded-md border border-trim object-cover" />
+                <img src={i.imagePath ?? "/assets/brand/walnutterz-logo.png"} alt={i.name} className="h-12 w-12 rounded-md border border-trim object-cover" />
                 <span className="flex-1 text-ink/80">{i.name} × {i.quantity}</span>
                 <span className="font-semibold">{formatPrice(i.unitPrice * i.quantity)}</span>
               </li>

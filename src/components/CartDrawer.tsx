@@ -43,7 +43,7 @@ export default function CartDrawer() {
                 <li key={item.slug} className="flex gap-3 border-b border-cream-deep pb-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={item.imagePath ?? "/assets/brand/Walnutterz logo.jpg"}
+                    src={item.imagePath ?? "/assets/brand/walnutterz-logo.png"}
                     alt={item.name}
                     className="h-20 w-20 flex-shrink-0 rounded-lg border border-trim object-cover"
                   />
